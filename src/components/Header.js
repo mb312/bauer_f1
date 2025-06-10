@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavigationItem from './components/NavigationItem';
 
 const LOGO_URL = "https://media.formula1.com/common/logos/f1_logo_red.svg";
+const arrLinks = [{toLink: "/overviewDriver", title: "Driver"},
+                  {toLink: "/overviewTeams", title: "Teams"},
+                  {toLink: "/overviewRaces", title: "Races"}]
 
 function Header() {
    return (      
@@ -10,9 +12,13 @@ function Header() {
          <section className="nav-container">
             <Link to='/' className="nav-logo"><img src={LOGO_URL} alt="" /></Link>
             <ul className="nav-menu">
-               <NavigationItem toLink='/overviewDriver' displayName='Drivers' />
-               <NavigationItem toLink='/overviewTeams' displayName='Teams' />
-               <NavigationItem toLink='/overviewRaces' displayName='Races' />
+               {arrLinks.map((oCurrent,index) => {
+                  return (
+                     <li className="nav-item">
+                        <Link to={oCurrent.toLink} className='nav-link'>{oCurrent.title}</Link>
+                     </li>
+                  )
+               })}
             </ul>
          </section>
       </nav>

@@ -1,17 +1,11 @@
 import React from "react";
-import '../css/InfoContainer.css';
+import { getLocalStringDate } from "../../utilities/usefullUtils";
 
-function NextRaceInfo({nextRace}) {
-   const createDate = (oDate) => {
-      if (typeof oDate !=="object") return "";
-      const dDate = new Date(`${oDate.date}T${oDate.time}`);
-      return dDate ? dDate.toLocaleString("de-AT") : "";
-   }
-   
-   const oInfo = [{title: "1st Practise", date: createDate(nextRace.FirstPractice)},
-                  {title: "2nd Practise", date: createDate(nextRace.SecondPractice)},
-                  {title: "3rd Practise", date: createDate(nextRace.ThirdPractice)},
-                  {title: "Qualifying", date: createDate(nextRace.Qualifying)}]
+function NextRaceInfo({nextRace}) {   
+   const oInfo = [{title: "1st Practise", date: getLocalStringDate(nextRace.FirstPractice)},
+                  {title: "2nd Practise", date: getLocalStringDate(nextRace.SecondPractice)},
+                  {title: "3rd Practise", date: getLocalStringDate(nextRace.ThirdPractice)},
+                  {title: "Qualifying", date: getLocalStringDate(nextRace.Qualifying)}]
 
    return (
       <div className="info-container">
@@ -29,12 +23,3 @@ function NextRaceInfo({nextRace}) {
 }
 
 export default NextRaceInfo
-
-/* 
-<p>
-                  first practise: {sFirstPractise}<br/>
-                  second practise: {sSecondPractise}<br/>
-                  third practise: {sThirdPractise}<br/>
-                  qualifying: {sQualifying}
-               </p>
-*/

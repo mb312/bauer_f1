@@ -1,5 +1,4 @@
 import React from "react";
-import '../css/Countdown.css';
 import DriverTable from "../blocks/DriverTable";
 import MainCountdown from "../blocks/MainCountdown";
 import NextRaceInfo from "../blocks/NextRaceInfo";

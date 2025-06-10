@@ -34,34 +34,9 @@ h1{
 h2{
    font-size: 1.2rem;
 }
-.container {
-   min-height: 85vh;
-   display: grid;
-   grid-template-columns: 1fr 295px;
-   width: 100%;
-}
-.data-container{
-   margin-top: 2rem;
-   display: block;
-   justify-content: center;
-   align-items: center;
-}
-.list-container{
-   background: var(--main-black)
-}
 
 @media screen and (max-width: 650px) {
    h1{
       font-size: 1.7rem;
-   }
-   .container {
-      display: block;
-   }
-   .data-container{
-      min-height: 215px;
-   }
-   .list-container{
-      border-top: 1px solid var(--main-red);
-      background: none;
    }
 }

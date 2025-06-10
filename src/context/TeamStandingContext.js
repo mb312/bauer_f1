@@ -14,6 +14,8 @@ export function TeamStandingProvider({ children }) {
         let oStanding = data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
         setTeamList(oStanding);
         setLoading(false);
+      }).catch((error) => {
+         console.error("Error getting team standing:",error);
       });
   }, []);
 

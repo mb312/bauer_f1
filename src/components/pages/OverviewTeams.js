@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import TeamCard from "../components/TeamCard";
-import "../css/ListCard.css";
 import { useTeamStanding } from "../../context/TeamStandingContext";
 
 function OverviewTeams() {
