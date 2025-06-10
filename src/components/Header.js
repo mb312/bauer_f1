@@ -14,7 +14,7 @@ function Header() {
             <ul className="nav-menu">
                {arrLinks.map((oCurrent,index) => {
                   return (
-                     <li className="nav-item">
+                     <li className="nav-item" key={index}>
                         <Link to={oCurrent.toLink} className='nav-link'>{oCurrent.title}</Link>
                      </li>
                   )

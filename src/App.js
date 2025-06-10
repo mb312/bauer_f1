@@ -10,6 +10,7 @@ import OverviewDriver from './components/pages/OverviewDriver';
 import OverviewTeams from './components/pages/OverviewTeams';
 import OverviewRaces from './components/pages/OverviewRaces';
 import { TeamStandingProvider } from './context/TeamStandingContext';
+import DriverDetail from './components/pages/DriverDetail';
 
 const URL_DRIVERSTANDING = 'https://api.jolpi.ca/ergast/f1/2025/driverstandings/';
 const URL_RACES = 'https://api.jolpi.ca/ergast/f1/2025/races/';
@@ -66,9 +67,10 @@ function App() {
             <TeamStandingProvider>
             <Routes>
                <Route path='/' element={<Home driverList={driverList} nextRace={nextRace} nextRaceDate={nextRaceDate} />} />
-               <Route path="/overviewDriver" element={<OverviewDriver driverList={driverList} />} />
-                  <Route path='/overviewTeams' element={<OverviewTeams />} />
+               <Route path='/overviewDriver' element={<OverviewDriver driverList={driverList} />} />
+               <Route path='/overviewTeams' element={<OverviewTeams />} />
                <Route path='/overviewRaces' element={<OverviewRaces />} />
+               <Route path='/driver/:driverId' element={<DriverDetail />} />
             </Routes>
             </TeamStandingProvider>
             <Footer />

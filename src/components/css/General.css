@@ -18,6 +18,12 @@
    background: var(--main-black)
 }
 
+/* used in Home.js */
+.full-container {
+   min-height: 85vh;
+   width: 100%;
+}
+
 /* used in NextRanceInfo.js */
 .info-container{
    font-family: monospace;
@@ -185,24 +191,24 @@
 }
 
 /* check order from big screen to small */
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1155px) {
    .card-list-col-three{
       grid-template-columns: repeat(2, 1fr);
    }
 
    .card-standing .standing-left, .card-standing .standing-right {
       margin: auto 10px;
-      font-size: 1.5rem;
+      font-size: 1.9rem;
    }
    .card-info .info-name {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
    }
    .card-end .end-number {
       font-size: 3rem;
    }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
    .container {
       display: block;
    }
