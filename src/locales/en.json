@@ -1,0 +1,18 @@
+{
+   "driver": "Driver",
+   "team": "Team",
+   "races": "Races",
+   "next_race": "Next race:",
+   "first_practice": "1st Practise",
+   "second_practice": "2nd Practise",
+   "third_practice": "3rd Practise",
+   "qualifying": "Qualifying",
+   "grand_prix": "Grand Prix",
+   "sprint_qualifying": "Sprint Quali",
+   "sprint": "Sprint",
+   "nationality": "Nationality",
+   "birthday": "Birthday",
+   "position": "Position",
+   "points": "Points",
+   "coming_soon": "coming soon..."
+}

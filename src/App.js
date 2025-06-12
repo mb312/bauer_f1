@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
+import './i18n';
 import './components/css/Main.css';
 import './components/css/General.css';
 import Header from './components/Header';
@@ -16,11 +17,12 @@ const URL_DRIVERSTANDING = 'https://api.jolpi.ca/ergast/f1/2025/driverstandings/
 const URL_RACES = 'https://api.jolpi.ca/ergast/f1/2025/races/';
 
 function App() {
-   const [driverList, setDriverList] = useState([]);
+   const [arrDriverList, setDriverList] = useState([]);
    const [nextRace, setNextRace] = useState([]);
    const [nextRaceDate, setNextRaceTime] = useState(null);
+   const [oRaceList, setRaceList] = useState(null);
    const firstRender = useRef(true);
-   
+
    const fetchDriverStandingData = async () => {
       if (!firstRender.current) return;
       try{
@@ -34,31 +36,33 @@ function App() {
       }
    }
 
-   const fetchNextRace = async() => {
+   const fetchAllRaces = async() => {
+      if (!firstRender.current) return;
       try{
          const response = await fetch(URL_RACES);
          const data = await response.json();
-         const today = new Date();
          const arrRaces = data.MRData.RaceTable.Races;
-         const oNext = arrRaces.find((race) => new Date(race.date).getTime()>=today.getTime());
-            
-         setNextRace(oNext);
-
-         if (oNext && oNext.date && oNext.time) {
-            const time = oNext.time.endsWith('Z') ? oNext.time.slice(0, -1) : oNext.time;
-            const dDate = `${oNext.date}T${time}Z`;
+         setRaceList(arrRaces);
+         
+         const today = new Date();
+         const oRace = arrRaces.find((race) => new Date(race.date).getTime()>=today.getTime());
+         setNextRace(oRace);
+         
+         if (oRace && oRace.date && oRace.time) {
+            const time = oRace.time.endsWith('Z') ? oRace.time.slice(0, -1) : oRace.time;
+            const dDate = `${oRace.date}T${time}Z`;
             setNextRaceTime(new Date(dDate));
          }
       }catch(error){
          console.error("Error fetching next race:",error);
       }
    }
-
+   
    useEffect(() => {
       fetchDriverStandingData();
-      fetchNextRace();
+      fetchAllRaces();
       firstRender.current = false;
-   },[]);
+   })
 
    return (
       <>
@@ -66,10 +70,10 @@ function App() {
             <Header />
             <TeamStandingProvider>
             <Routes>
-               <Route path='/' element={<Home driverList={driverList} nextRace={nextRace} nextRaceDate={nextRaceDate} />} />
-               <Route path='/overviewDriver' element={<OverviewDriver driverList={driverList} />} />
+               <Route path='/' element={<Home driverList={arrDriverList} nextRace={nextRace} nextRaceDate={nextRaceDate} />} />
+               <Route path='/overviewDriver' element={<OverviewDriver driverList={arrDriverList} />} />
                <Route path='/overviewTeams' element={<OverviewTeams />} />
-               <Route path='/overviewRaces' element={<OverviewRaces />} />
+               <Route path='/overviewRaces' element={<OverviewRaces raceList={oRaceList}/>} />
                <Route path='/driver/:driverId' element={<DriverDetail />} />
             </Routes>
             </TeamStandingProvider>

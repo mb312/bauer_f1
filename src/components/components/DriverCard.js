@@ -24,7 +24,7 @@ const DriverCard = (props) => {
          <div className="card-info">
             <div className="info-name">{sDriverName}</div>
             <div className="info-img">
-               <img src={getTeamLogoURL(oConstructor.constructorId)} alt={`${oConstructor.name} logo`} />
+               <img src={getTeamLogoURL(oConstructor.constructorId)} alt={`${oConstructor.name} logo`} loading="lazy" />
             </div>
          </div>
          <div className="card-end-split">
@@ -32,14 +32,14 @@ const DriverCard = (props) => {
                {getDrivernumber(oDriver)}
             </div>
             <div className="end-img">
-               <img src={getDriverImageURL(oDriver)} alt={`${sDriverName} portrait`} />
+               <img src={getDriverImageURL(oDriver)} alt={`${sDriverName} portrait`} loading="lazy" />
             </div>
          </div>
       </div>
    )
 }
 
-DriverCard.protoTypes = {
+DriverCard.propTypes = {
    Driver: PropTypes.object.isRequired,
    Constructors: PropTypes.array.isRequired,
    position: PropTypes.string.isRequired,

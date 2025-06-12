@@ -1,0 +1,18 @@
+{
+   "driver": "Fahrer",
+   "team": "Team",
+   "races": "Rennen",
+   "next_race": "Nächstes Rennen:",
+   "first_practice": "1. Freies Training",
+   "second_practice": "2. Freies Training",
+   "third_practice": "3. Freies Training",
+   "qualifying": "Qualifikation",
+   "grand_prix": "Grand Prix",
+   "sprint_qualifying": "Sprint Quali",
+   "sprint": "Sprint",
+   "nationality": "Nationalität",
+   "birthday": "Geburtstag",
+   "position": "Position",
+   "points": "Punkte",
+   "coming_soon": "bald verfügbar..."
+}

@@ -3,6 +3,7 @@ import '../css/DriverDetail.css';
 import { useLocation, useNavigate } from "react-router-dom";
 import { getDriverBGImageURL, getDriverHelmetImageURL, getDriverName, getDrivernumber } from "../../utilities/driverUtils";
 import { getDateFormation } from "../../utilities/usefullUtils";
+import { useTranslation } from "react-i18next";
 
 function DriverDetail() {
    const navigate = useNavigate();
@@ -11,18 +12,19 @@ function DriverDetail() {
    const sDriverName = getDriverName(driver);
    const teamColor = { borderBottom: `3px solid var(--color-${constructor.constructorId})` };
    const teamColorSlim = { borderBottom: `1px solid var(--color-${constructor.constructorId})` };
-   const oDriverInfo = [{title: "Nationality",value:driver.nationality},
-                        {title: "Birthday",value:getDateFormation(driver.dateOfBirth)},
-                        {title: "Team",value:constructor?.name},
-                        {title: "Position",value:position},
-                        {title: "Points",value:points}]
+   const {t} = useTranslation();
+   const oDriverInfo = [{title: t("nationality"),value:driver.nationality},
+                        {title: t("birthday"),value:getDateFormation(driver.dateOfBirth)},
+                        {title: t("team"),value:constructor?.name},
+                        {title: t("position"),value:position},
+                        {title: t("points"),value:points}]
 
    return (    
       <div className="full-container">
          <i className="fa-solid fa-arrow-left" onClick={()=>navigate(-1)}></i>
          <div className="detail-card">
             <div className="card-detail-left">
-               <img src={getDriverBGImageURL(driver)} alt={`${sDriverName} portrait`} />
+               <img src={getDriverBGImageURL(driver)} alt={`${sDriverName} portrait`} loading="lazy" />
             </div>
             <div className="card-detail-right">
                <div className="card-header" style={teamColor}>
@@ -38,7 +40,7 @@ function DriverDetail() {
                   )
                })}
                <div className="card-footer">
-                  <img src={getDriverHelmetImageURL(driver)} alt={`${sDriverName} helmet`} />
+                  <img src={getDriverHelmetImageURL(driver)} alt={`${sDriverName} helmet`} loading="lazy" />
                </div>
             </div>
          </div>
