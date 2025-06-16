@@ -14,5 +14,6 @@
    "birthday": "Birthday",
    "position": "Position",
    "points": "Points",
-   "coming_soon": "coming soon..."
+   "coming_soon": "coming soon...",
+   "no_data": "no data found"
 }

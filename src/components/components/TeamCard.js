@@ -1,12 +1,17 @@
 import React from "react";
 import { getMiniTeamLogoURL, getTeamCarURL } from "../../utilities/constructorUtils";
+import { useNavigate } from "react-router-dom";
 
 const TeamCard = (props) => { 
+   const navigate = useNavigate();
    const oConstructor = props.Constructor;
    const sConstructorId = oConstructor.constructorId;
+   const handleClick = () => {
+      navigate(`/team/${oConstructor.constructorId}`,{ state:{constructor:props,position:props.position,points:props.points}});
+   };
 
    return (
-      <div className="card">
+      <div className="card" onClick={handleClick}>
          <div className="card-standing">
              <div className="standing-left">{props.position}</div>
             <div className="standing-right">{props.points} PTS</div>

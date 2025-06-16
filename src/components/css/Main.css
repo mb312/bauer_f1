@@ -93,43 +93,36 @@ footer{
 }
 
 /* table formation */
-table{
+.table-right-list{
    height: inherit;
    width: 95%;
    margin: 1rem 2rem 1rem 0;
    border-collapse: collapse;
 }
 
-th,td {
+.table-right-list th,td {
    padding: 0 5px;
 }
-td:nth-child(1){
+.table-right-list td:nth-child(1){
    background: var(--main-black);
    color: var(--main-white);
    font-size: 1.7rem;
    text-align: center;
 }
-td:nth-child(2){
+.table-right-list td:nth-child(2){
    width: 100%;
    font-size: 1.5rem;
    font-weight: 500;
    text-align: left;
    padding-left: 10px;
 }
-td:nth-child(3){
+.table-right-list td:nth-child(3){
    text-align: right;
    background: var(--main-black);
    color: var(--main-white);
    font-size: 1.7rem;
 }
-td img{
-   height: 20px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   margin: auto;
-}
-tbody tr{
+.table-right-list tbody tr{
    border-bottom: 3px solid var(--main-white);
 }
 
@@ -174,6 +167,28 @@ tbody tr{
    color: var(--main-white);
 }
 
+.btn-back-to-top{
+   position: fixed;
+   width: 75px;
+   height: 75px;
+   background: rgba(255,255,255,0.5);
+   color: var(--main-black);
+   font-size: 3rem;
+   cursor: pointer;
+   border-radius: 50%;
+   border: 7px solid var(--main-black);
+   backdrop-filter: blur(2px);
+   bottom: 45px;
+   right: 15px;
+   z-index: 1000;
+}
+.btn-jump-to-next{
+   position: fixed;
+   width: 75px;
+   height: 75px;
+   background: var(--main-black)
+}
+
 @media screen and (max-width: 960px) {
    .nav-bar, .nav-item{
       height: 55px;
@@ -200,9 +215,9 @@ tbody tr{
 }
 
 @media screen and (max-width: 650px) {
-   table{
+   .table-right-list{
       width: 100%;
-      margin: 1rem0;
+      margin: 1rem 0;
    }
    th,td {
       padding: 5px 15px;

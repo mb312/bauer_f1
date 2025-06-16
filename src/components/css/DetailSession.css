@@ -1,0 +1,137 @@
+.header-go-back {
+   height: 60px;
+}
+
+.container.wide {
+   width: 100%;
+   grid-template-columns: 1fr 355px;
+   gap: 2rem;
+   overflow: hidden;
+}
+
+.selected-session {
+   width: 100%;
+   margin: 1rem;
+}
+
+.session-info {
+   display: block;
+   width: 100%;
+   text-align: center;
+   padding-top: 1rem;
+}
+
+.session-info .info-left {
+   font-size: 2rem;
+   font-style: italic;
+   color: var(--main-black);
+}
+.session-info .info-right {
+   font-size: 1.5rem;
+   color: var(--black-light);
+}
+
+.session-buttons {
+   display: grid;
+   grid-template-columns: 250px 250px;
+   column-gap: 10px;
+   width: 100%;
+   margin: 1rem;
+   text-align: center;
+   align-items: center;
+   justify-content: center;
+}
+
+.session-buttons button {
+   font-size: 1.5rem;
+   color: var(--main-black);
+   background: var(--main-white);
+   border: 2px solid var(--main-red);
+   border-radius: 15px;
+   margin-top: 1rem;
+   padding: 1rem;
+   cursor: pointer;
+}
+.session-buttons button.active{
+   color: var(--main-white);
+   background: var(--main-red);
+   font-size: 1.7rem;
+}
+
+/* table on the right*/
+.table-session-standing {
+   height: inherit;
+   width: 95%;
+   margin: 1rem 2rem 1rem 0;
+   border-collapse: collapse;
+}
+
+.table-session-standing th, td {
+   padding: 0 5px;
+}
+
+.table-session-standing tbody tr {
+   border-bottom: 3px solid var(--main-white);
+}
+
+.table-session-standing td:nth-child(1) {
+   background: var(--main-black);
+   color: var(--main-white);
+   font-size: 1.6rem;
+   text-align: center;
+}
+
+.table-session-standing td:nth-child(2) {
+   width: 100%;
+   font-size: 1.4rem;
+   text-align: left;
+   padding-left: 10px;
+}
+
+.table-session-standing td:nth-child(3) {
+   display: flex;
+   text-align: right;
+   align-items: center;
+   justify-content: flex-end;
+   background: var(--main-black);
+   color: var(--main-white);
+   font-size: 1.6rem;
+}
+
+.table-session-standing td:nth-child(3) i {
+   font-size: 1.2rem;
+   padding-left: 7px;
+}
+
+@media screen and (max-width:850px) {
+   .selected-session {
+       margin: 0;
+   }
+   .session-buttons {
+      grid-template-columns: 175px 175px;
+      margin: 0 2rem 1rem 0;
+      text-align: center;
+   }
+   .session-buttons button {
+      font-size: 1.2rem;
+      color: var(--main-black);
+      background: var(--main-white);
+      border: 2px solid var(--main-red);
+      border-radius: 15px;
+      margin-top: 1rem;
+      padding: 1rem;
+      cursor: pointer;
+   }
+   .table-session-standing {
+      width: 100%;
+      margin: 1rem 0;
+   }
+   .table-session-standing td:nth-child(3){
+      width: 100%;
+      text-align: right;
+      padding-right: 10px;
+   }
+   .table-session-standing td:nth-child(3) i {      
+      font-size: 1rem;
+   }
+}

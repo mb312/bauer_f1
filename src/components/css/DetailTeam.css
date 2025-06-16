@@ -1,0 +1,54 @@
+.detail-team-card{
+   display: flex;
+   flex: 1;
+   background-color: white;
+   border-radius: 10px;
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+   margin: 0 1rem 1rem;
+   width: calc(100vw - 3rem);
+   max-height: 75vh;
+   align-items: center;
+   overflow: hidden;   
+   padding: 0;
+}
+.detail-team-card .card-detail-left{
+   display: block;
+   padding: 0 1rem;
+   max-width: 450px;
+}
+.card-detail-header{
+   width: 100%;
+}
+.card-detail-driver img{
+   width: 100%;
+   object-fit: cover;
+}
+.detail-team-card .card-detail-right{
+   display: flex;
+   flex-direction: row;
+   padding: 0 0 0 1rem;
+}
+.card-detail-driver{
+   width: 100%;
+   align-items: center;
+   flex: 1 1 0;
+}
+@media screen and (max-width: 875px) {
+   .detail-team-card {
+      flex-direction: column;
+      max-height: none;
+      width: calc(100vw - 2rem);
+      align-items: center;
+   }
+   .detail-team-card .card-detail-left, .detail-team-card .card-detail-right {
+      width: 100%;
+      height: auto;
+      padding: 0 1rem;
+   }
+   .card-detail-left{
+      border: none !important;
+   }
+   .card-detail-right{
+      padding: 0.5rem 1rem 1rem;
+   }
+}

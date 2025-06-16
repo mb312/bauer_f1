@@ -14,5 +14,6 @@
    "birthday": "Geburtstag",
    "position": "Position",
    "points": "Punkte",
-   "coming_soon": "bald verfügbar..."
+   "coming_soon": "bald verfügbar...",
+   "no_data": "noch keine Daten vorhanden"
 }

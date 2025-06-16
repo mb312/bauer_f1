@@ -1,6 +1,7 @@
 live data:
    - https://api.openf1.org/v1/meetings?meeting_key=latest
-
+   - https://api.openf1.org/v1/sessions?meeting_key=latest
+   - https://api.openf1.org/v1/sessions?session_key=latest
 
 saved data:
    - https://api.jolpi.ca/ergast/
@@ -26,5 +27,12 @@ logos:
    - https://media.formula1.com/content/dam/fom-website/teams/2025/mclaren-logo.png
 
 courses:
-   - https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Canada.png
+   white
+      https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Canada.png
+      https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Austria.png
+   black
+      https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Canada%20carbon.png
+      https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Austria%20carbon.png
+      https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Great%20Britain%20carbon.png
+      https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Belgium%20carbon.png
    

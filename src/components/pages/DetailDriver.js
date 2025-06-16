@@ -5,7 +5,7 @@ import { getDriverBGImageURL, getDriverHelmetImageURL, getDriverName, getDrivern
 import { getDateFormation } from "../../utilities/usefullUtils";
 import { useTranslation } from "react-i18next";
 
-function DriverDetail() {
+function DetailDriver() {
    const navigate = useNavigate();
    const {state} = useLocation();
    const {driver, constructor, position, points} = state || {};
@@ -47,4 +47,4 @@ function DriverDetail() {
       </div>
    );
 }
-export default DriverDetail
+export default DetailDriver

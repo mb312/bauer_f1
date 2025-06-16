@@ -20,7 +20,7 @@
 
 /* used in Home.js */
 .full-container {
-   min-height: 85vh;
+   min-height: 83vh;
    width: 100%;
 }
 
@@ -48,18 +48,17 @@
 }
 .info-row-even.event-over{
    text-decoration: line-through;
-   color: rgba(0, 0, 0, 0.5);
+   color: var(--black-light);;
 }
 
 .info-row-odd{
    background: var(--main-black);
    color: var(--main-white);
 }
-
 .info-row-odd.event-over{
    text-decoration: line-through;
-   color: rgba(0, 0, 0, 0.5);
-   background: rgba(0, 0, 0, 0.2);
+   color: var(--black-light);
+   background: var(--black-lighter);
 }
 
 .info-row-left, .info-row-right{
@@ -73,6 +72,17 @@
    flex: 0 0 auto;
    align-items: end;
 }
+.info-row-detail{
+   flex: 0 0 auto;
+   font-size: 1.7rem;
+   padding-right: 5px;
+   cursor: pointer;
+}
+.info-row-detail-empty{
+   width: 1.7rem;
+   padding-right: 5px;
+}
+
 /* used in MainCountdown.js*/
 .timer-container {
   margin: 2rem;
@@ -123,15 +133,25 @@
    display: flex;
    flex-direction: column;
    overflow: hidden;
+   cursor: pointer;
 }
 .card-standing {
    display: grid;
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: 1fr 5fr;
    grid-template-rows: 1fr;
    position: relative;
    height: 50px;
    color: white;
    background: var(--main-black);
+}
+.card-standing.outdated{
+   background: var(--black-lighter);
+   color: var(--black-light);
+}
+.card-standing.currently{
+   background: var(--main-red);
+   color: var(--main-white);
+   font-weight: 600;
 }
 .card-info {
    display: flex;
@@ -170,6 +190,29 @@
    font-size: 2.2rem;
    margin: 5px 15px;
 }
+.card-standing .standing-right-long {
+   justify-self: end;
+   align-self: start;
+   font-size: 1.7rem;
+   margin: auto 15px;
+}
+.card-standing .standing-right-long.outdated {
+   text-decoration: line-through;
+}
+.card-standing .standing-right-long.currently {
+   font-weight: 300;
+   animation: blink-bold 3s linear infinite;
+}
+@keyframes blink-bold {
+   0%   { font-weight: 300; }
+   15%  { font-weight: 400; }
+   35%  { font-weight: 500; }
+   50%  { font-weight: 600; }
+   65%  { font-weight: 500; }
+   85%  { font-weight: 400; }
+   100% { font-weight: 300; }
+}
+
 .card-info .info-name {
    flex: 1 1 0;
    font-size: 1.5rem;
@@ -183,6 +226,10 @@
 .card-info .info-img img {
    height: 100%;
    width: auto;
+}
+.card-info .info-img .flag-img{
+   border: 2px solid var(--black-light);
+   border-radius: 7px;
 }
 .card-end-split .end-number {
    font-size: 5rem;
@@ -250,6 +297,9 @@
 
    .card-list-col-two, .card-list-col-three{
       grid-template-columns: repeat(1, 1fr);
+   }
+   .card-standing .standing-right-long {
+      font-size: 1.3rem;
    }
    .card-end .end-number {
       font-size: 3rem;

@@ -2,16 +2,18 @@
    --main-red: #ff1e00;
    --main-black: #15151e;
    --main-white: #ffffff;
-   --color-mclaren: #ff8000;
-   --color-red_bull: #3671c6;
-   --color-rb: #6C98FF;
-   --color-ferrari: #e8002d;
-   --color-mercedes: #27f4d2;
+   --black-light: rgba(0, 0, 0, 0.5);
+   --black-lighter: rgba(0, 0, 0, 0.2);
+   --color-mclaren: #f47600;
+   --color-red_bull: #4781d7;
+   --color-rb: #6c98ff;
+   --color-ferrari: #ed1131;
+   --color-mercedes: #00d7B6;
    --color-williams: #1868db;
-   --color-sauber: #01C00E;
-   --color-haas: #b6babd;
+   --color-sauber: #01c00e;
+   --color-haas: #9c9fa2;
    --color-aston_martin: #229971;
-   --color-alpine: #0093cc;
+   --color-alpine: #00a1e8;
 }
 *{
    box-sizing: border-box;

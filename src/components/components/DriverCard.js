@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 const DriverCard = (props) => { 
    const navigate = useNavigate();
    const oDriver = props.Driver;
-   const oConstructor = props.Constructors[0];
+   const arrFound = props.Constructors;
+   const oConstructor = arrFound[(arrFound.length-1)];
    const sDriverName = oDriver.givenName+" "+oDriver.familyName;
    const teamColor = { color: `var(--color-${oConstructor.constructorId})` };
 
@@ -16,7 +17,7 @@ const DriverCard = (props) => {
    };
    
    return (
-      <div className="card" onClick={handleClick} style={{cursor:"pointer"}}>
+      <div className="card" onClick={handleClick}>
          <div className="card-standing">
             <div className="standing-left">{props.position}</div>
             <div className="standing-right">{props.points} PTS</div>
