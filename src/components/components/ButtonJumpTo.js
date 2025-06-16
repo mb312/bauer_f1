@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function JumpToButton({ scrollToNextRace, threshold = 200 }) {
+function ButtonJumpTo({ scrollToNextRace, threshold = 200 }) {
    const [show, setShow] = useState(true);
    
    useEffect(() => {
@@ -16,4 +16,4 @@ function JumpToButton({ scrollToNextRace, threshold = 200 }) {
    ) : null;
 }
 
-export default JumpToButton;
+export default ButtonJumpTo;

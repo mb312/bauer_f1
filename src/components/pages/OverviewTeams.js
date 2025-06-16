@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import TeamCard from "../components/TeamCard";
 import { useTeamStanding } from "../../context/TeamStandingContext";
-import BackToTopButton from "../components/BackToTopButton";
+import BackToTopButton from "../components/ButtonBackToTop";
 
 function OverviewTeams() {
    const { teamlist, loading } = useTeamStanding();

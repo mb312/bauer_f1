@@ -273,6 +273,7 @@
    }
    .data-container{
       min-height: 215px;
+      margin: 0;
    }
    .list-container{
       border-top: 1px solid var(--main-red);

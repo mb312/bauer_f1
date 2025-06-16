@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import DriverCard from "../components/DriverCard";
-import BackToTopButton from "../components/BackToTopButton";
+import BackToTopButton from "../components/ButtonBackToTop";
 import { useDriverStanding } from "../../context/DriverStandingContext";
 
 function OverviewDriver() {

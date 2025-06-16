@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function BackToTopButton({ threshold = 200 }) {
+function ButtonBackToTop({ threshold = 200 }) {
    const [show, setShow] = useState(false);
 
    useEffect(() => {
@@ -20,4 +20,4 @@ function BackToTopButton({ threshold = 200 }) {
    ) : null;
 }
 
-export default BackToTopButton;
+export default ButtonBackToTop;

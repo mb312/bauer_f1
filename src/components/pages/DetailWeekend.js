@@ -1,33 +1,34 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { formatLapTime, getDateFormation, getDriverRaceResultPoints, getLastPositionOfDriver, getReorderByLastPosition, getStartingPostionOfDriver } from "../../utilities/usefullUtils";
+import { formatLapTime, getDateFormation, getDriverRaceResultPoints, getLastPositionOfDriver, getReorderByLastPosition, getSessionFilter, getStartingPostionOfDriver } from "../../utilities/usefullUtils";
 import { getConstrocturIdWithDriverNo } from "../../utilities/constructorUtils";
 import '../css/DetailSession.css';
-import SessionButtons from "../components/SessionButtons";
+import SessionButtons from "../blocks/SessionButtons";
 
-const URL_SESSION = "https://api.openf1.org/v1/sessions?year=2025&meeting_key=latest";
+const URL_SESSION = "https://api.openf1.org/v1/sessions?year=2025&";
 const URL_DRIVERS = "https://api.openf1.org/v1/drivers?meeting_key=";
 const URL_LAPS = "https://api.openf1.org/v1/laps?meeting_key=";
 const URL_POSITIONS = "https://api.openf1.org/v1/position?session_key=";
 
-function DetailSession() {
+function DetailWeekend() {
    const navigate = useNavigate();
    const { t } = useTranslation();
    const { state } = useLocation();
-   const { eventNo } = state || {};
+   const { eventNo, oWeekend } = state || {};
    const [sessions, setSessions] = useState([]);
    const [selectedSession, setSelectedSession] = useState();
    const [driversBySession, setDriversBySession] = useState({});
    const [lapsBySession, setLapsBySession] = useState({});
-   const [racePositions, setRacePosition] = useState({})
+   const [racePositions, setRacePosition] = useState([])
    const [loading, setLoading] = useState(true);
 
    useEffect(() => {
       async function fetchAllData() {
          setLoading(true);
-         // step 1: Fetch sessions
-         const sessionsRes = await fetch(URL_SESSION);
+         // step 1: fetch sessions
+         const sSessionUrl = getSessionFilter(oWeekend);
+         const sessionsRes = await fetch(URL_SESSION+sSessionUrl);
          const arrSessions = await sessionsRes.json();
          setSessions(arrSessions);
                
@@ -35,16 +36,20 @@ function DetailSession() {
             setLoading(false);
             return;
          }
+
          const nSelected = (eventNo);
          setSelectedSession(arrSessions[nSelected]);
-         
+         const oFind = arrSessions.find((oSession) => (oSession.session_name === "Sprint" && oSession.session_type === "Race")) 
          const meetingKey = arrSessions[nSelected].meeting_key;
          const raceKey = arrSessions[arrSessions.length-1].session_key;
+         const sprintKey = (oFind) ? arrSessions[2].session_key : 0;
 
          Promise.all([fetch(URL_DRIVERS + meetingKey).then(res => res.json()),
                      fetch(URL_LAPS + meetingKey).then(res => res.json()),
-                     fetch(URL_POSITIONS+raceKey).then(res => res.json())
-         ]).then(([drivers, laps, positions]) => {
+                     fetch(URL_POSITIONS+raceKey).then(res => res.json()),
+                     fetch(URL_POSITIONS+sprintKey).then(res => res.json())
+         ]).then(([drivers, laps, racePositions, sprintPositions]) => {
+            /* get all sessions and laps of the weekend grouped by the session_key*/
             const groupedDrivers = {};
             const groupedLaps = {};
 
@@ -55,8 +60,12 @@ function DetailSession() {
             })
             setDriversBySession(groupedDrivers);
             setLapsBySession(groupedLaps);
-
-            setRacePosition({result: getLastPositionOfDriver(positions), start: getStartingPostionOfDriver(positions)});
+            
+            /* get the start and finish position for the race and sprint if exists */
+            const arrResult = [{type: "race", result: getLastPositionOfDriver(racePositions), start: getStartingPostionOfDriver(racePositions)}];
+            if (sprintPositions.length>0) arrResult.push({type: "sprint", result: getLastPositionOfDriver(sprintPositions), start: getStartingPostionOfDriver(sprintPositions)});
+            setRacePosition(arrResult);
+            
             setLoading(false);
          });
       }
@@ -101,16 +110,19 @@ function DetailSession() {
             return lapA.lap_duration - lapB.lap_duration;
          });
       }
-      return getReorderByLastPosition(drivers, racePositions.result);
+      const nUse = (selectedSession.session_name === "Sprint") ? 1 : 0;
+
+      return getReorderByLastPosition(drivers, racePositions[nUse].result);
    }, [drivers, fastestLapByDriver]);
 
    function DriverRow({ driver, index }) {
       const fastestLap = fastestLapByDriver[driver.driver_number];
-      const constructorId = getConstrocturIdWithDriverNo(driver.driver_number);
+      const constructorId = getConstrocturIdWithDriverNo(driver);
       let oStartPosition;;
       let sClass = "";
       if (selectedSession.session_type === "Race"){
-         oStartPosition = racePositions.start.find((number) => number.driver_number === driver.driver_number)
+         const nUse = (selectedSession.session_name === "Sprint") ? 1 : 0;
+         oStartPosition = racePositions[nUse].start.find((number) => number.driver_number === driver.driver_number)
          sClass = (index<oStartPosition.position) ? "fa-solid fa-caret-up"
                   : (index>>oStartPosition.position) ? "fa-solid fa-caret-down"
                   : "fa-solid fa-minus"
@@ -174,4 +186,4 @@ function DetailSession() {
    )
 }
 
-export default DetailSession
+export default DetailWeekend

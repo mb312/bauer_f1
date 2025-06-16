@@ -14,7 +14,7 @@ import DetailDriver from './components/pages/DetailDriver';
 import DetailTeam from './components/pages/DetailTeam';
 import { TeamStandingProvider } from './context/TeamStandingContext';
 import { DriverStandingProvider } from './context/DriverStandingContext';
-import DetailSession from './components/pages/DetailSession';
+import DetailSession from './components/pages/DetailWeekend';
 
 const URL_RACES = 'https://api.jolpi.ca/ergast/f1/2025/races/';
 

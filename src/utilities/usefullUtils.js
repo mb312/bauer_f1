@@ -1,4 +1,3 @@
-
 /* pass object with date and time */
 export function getLocalStringDate(oDate) {
    if (typeof oDate !== "object") return "";
@@ -13,6 +12,11 @@ export function getLocalStringDate(oDate) {
    }) : "";
 }
 
+export function setZeroInfrontOfNumber(nNumber,bLong){
+   if (bLong) return nNumber.toString().padStart(3, "0");
+   return nNumber.toString().padStart(2, "0");
+}
+
 /* return the date as DD.MonthName YYYY*/
 export function getDateFormation(sDate, bLong) {
    if (sDate === "") return "---"
@@ -21,7 +25,7 @@ export function getDateFormation(sDate, bLong) {
       return dDate.getDate() + "." +
          dDate.toLocaleString('default', { month: 'long' }) +
          " " + dDate.getFullYear() +
-         " " + dDate.getHours() + ":" + dDate.getMinutes();
+         " " + dDate.getHours() + ":" + setZeroInfrontOfNumber(dDate.getMinutes());
    }
 
    return dDate.getDate() + "." + dDate.toLocaleString('default', { month: 'long' }) + " " + dDate.getFullYear();
@@ -33,7 +37,7 @@ export function formatLapTime(seconds) {
    const mins = Math.floor(seconds / 60);
    const secs = Math.floor(seconds % 60);
    const millis = Math.round((seconds - mins * 60 - secs) * 1000);
-   return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}.${millis.toString().padStart(3, "0")}`;
+   return `${mins.toString().padStart(2, "0")}:${setZeroInfrontOfNumber(secs)}.${setZeroInfrontOfNumber(millis,true)}`;
 }
 
 /* check if the event date/time is in the past */
@@ -108,4 +112,15 @@ export function getDriverRaceResultPoints(nPosition){
       case 10: return "+1";
       default: return "0"
    }
+}
+
+export function getSessionFilter(oWeekend){
+   if (!oWeekend) return "meeting_key=latest";
+
+   const oStart = new Date(oWeekend.FirstPractice.date);
+   const sStart = oStart.getFullYear()+"-"+setZeroInfrontOfNumber((oStart.getMonth()+1))+"-"+oStart.getDate();
+   const oEnd = new Date(oWeekend.date);
+   const sEnd = oEnd.getFullYear()+"-"+setZeroInfrontOfNumber((oEnd.getMonth()+1))+"-"+(oEnd.getDate()+1);
+
+   return "date_start>="+sStart+"&date_end<="+sEnd;
 }
