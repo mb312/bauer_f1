@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { formatLapTime, getDateFormation, getDriverRaceResultPoints, getLastPositionOfDriver, getReorderByLastPosition, getSessionFilter, getStartingPostionOfDriver } from "../../utilities/usefullUtils";
 import { getConstrocturIdWithDriverNo } from "../../utilities/constructorUtils";
 import '../css/DetailSession.css';
 import SessionButtons from "../blocks/SessionButtons";
+import ButtonBack from "../components/ButtonBack";
 
 const URL_SESSION = "https://api.openf1.org/v1/sessions?year=2025&";
 const URL_DRIVERS = "https://api.openf1.org/v1/drivers?meeting_key=";
@@ -12,60 +13,61 @@ const URL_LAPS = "https://api.openf1.org/v1/laps?meeting_key=";
 const URL_POSITIONS = "https://api.openf1.org/v1/position?session_key=";
 
 function DetailWeekend() {
-   const navigate = useNavigate();
    const { t } = useTranslation();
    const { state } = useLocation();
    const { eventNo, oWeekend } = state || {};
-   const [sessions, setSessions] = useState([]);
-   const [selectedSession, setSelectedSession] = useState();
-   const [driversBySession, setDriversBySession] = useState({});
-   const [lapsBySession, setLapsBySession] = useState({});
-   const [racePositions, setRacePosition] = useState([])
-   const [loading, setLoading] = useState(true);
+   const [arrSessions, setSessions] = useState([]);
+   const [oSelectedSession, setSelectedSession] = useState();
+   const [aaDriversBySession, setDriversBySession] = useState({});
+   const [aaLapsBySession, setLapsBySession] = useState({});
+   const [aaRacePositions, setRacePosition] = useState([])
+   const [bLoading, setLoading] = useState(true);
 
    useEffect(() => {
       async function fetchAllData() {
          setLoading(true);
-         // step 1: fetch sessions
          const sSessionUrl = getSessionFilter(oWeekend);
-         const sessionsRes = await fetch(URL_SESSION+sSessionUrl);
-         const arrSessions = await sessionsRes.json();
-         setSessions(arrSessions);
-               
-         if (arrSessions.length === 0) {
+         const arrSessionJson = await fetch(URL_SESSION+sSessionUrl);
+         const arrSessionResult = await arrSessionJson.json();
+         setSessions(arrSessionResult);
+         
+         if (arrSessionResult.length === 0) {
             setLoading(false);
             return;
          }
 
          const nSelected = (eventNo);
-         setSelectedSession(arrSessions[nSelected]);
-         const oFind = arrSessions.find((oSession) => (oSession.session_name === "Sprint" && oSession.session_type === "Race")) 
-         const meetingKey = arrSessions[nSelected].meeting_key;
-         const raceKey = arrSessions[arrSessions.length-1].session_key;
-         const sprintKey = (oFind) ? arrSessions[2].session_key : 0;
+         setSelectedSession(arrSessionResult[nSelected]);
+         const oFind = arrSessionResult.find((oSession) => (oSession.session_name === "Sprint" && oSession.session_type === "Race")) 
+         const nMeetingKey = arrSessionResult[nSelected].meeting_key;
+         const nRaceKey = arrSessionResult[arrSessionResult.length-1].session_key;
+         const nSprintKey = (oFind) ? arrSessionResult[2].session_key : 0;
 
-         Promise.all([fetch(URL_DRIVERS + meetingKey).then(res => res.json()),
-                     fetch(URL_LAPS + meetingKey).then(res => res.json()),
-                     fetch(URL_POSITIONS+raceKey).then(res => res.json()),
-                     fetch(URL_POSITIONS+sprintKey).then(res => res.json())
-         ]).then(([drivers, laps, racePositions, sprintPositions]) => {
+         Promise.all([fetch(URL_DRIVERS + nMeetingKey).then(res => res.json()),
+                     fetch(URL_LAPS + nMeetingKey).then(res => res.json()),
+                     fetch(URL_POSITIONS+nRaceKey).then(res => res.json()),
+                     fetch(URL_POSITIONS+nSprintKey).then(res => res.json())
+         ]).then(([arrDrivers, arrLaps, arrRacePositions, arrSprintPositions]) => {
             /* get all sessions and laps of the weekend grouped by the session_key*/
             const groupedDrivers = {};
             const groupedLaps = {};
 
-            arrSessions.map((session) =>{
+            arrSessionResult.map((session) =>{
                const nSessionKey = session.session_key;
-               groupedDrivers[nSessionKey] = drivers.filter(driver => driver.session_key === nSessionKey);
-               groupedLaps[nSessionKey] = laps.filter(lap => lap.session_key === nSessionKey);
+               groupedDrivers[nSessionKey] = arrDrivers.filter(driver => driver.session_key === nSessionKey);
+               groupedLaps[nSessionKey] = arrLaps.filter(lap => lap.session_key === nSessionKey);
             })
             setDriversBySession(groupedDrivers);
             setLapsBySession(groupedLaps);
             
             /* get the start and finish position for the race and sprint if exists */
-            const arrResult = [{type: "race", result: getLastPositionOfDriver(racePositions), start: getStartingPostionOfDriver(racePositions)}];
-            if (sprintPositions.length>0) arrResult.push({type: "sprint", result: getLastPositionOfDriver(sprintPositions), start: getStartingPostionOfDriver(sprintPositions)});
+            const arrResult = [{type: "race",
+                              result: getLastPositionOfDriver(arrRacePositions),
+                              start: getStartingPostionOfDriver(arrRacePositions)}];
+            if (arrSprintPositions.length>0) arrResult.push({type: "sprint",
+                                                            result: getLastPositionOfDriver(arrSprintPositions),
+                                                            start: getStartingPostionOfDriver(arrSprintPositions)});
             setRacePosition(arrResult);
-            
             setLoading(false);
          });
       }
@@ -74,20 +76,20 @@ function DetailWeekend() {
       
    // filter drivers for the selected session
    const drivers = useMemo(() => {
-      if (!selectedSession || !selectedSession.session_key || !driversBySession) return [];
-      return driversBySession[selectedSession.session_key];
-   }, [driversBySession, selectedSession]);
+      if (!oSelectedSession || !oSelectedSession.session_key || !aaDriversBySession) return [];
+      return aaDriversBySession[oSelectedSession.session_key];
+   }, [aaDriversBySession, oSelectedSession]);
 
    // filter laps for the selected session
    const laps = useMemo(() => {
-      if (!selectedSession || !selectedSession.session_key || !lapsBySession) return [];
-      return lapsBySession[selectedSession.session_key];
-   }, [lapsBySession, selectedSession]);
+      if (!oSelectedSession || !oSelectedSession.session_key || !aaLapsBySession) return [];
+      return aaLapsBySession[oSelectedSession.session_key];
+   }, [aaLapsBySession, oSelectedSession]);
 
    // return fastest lap by driver
    const fastestLapByDriver = useMemo(() => {
       const map = {};
-      if (!selectedSession || !selectedSession.session_key || !laps) return map;
+      if (!oSelectedSession || !oSelectedSession.session_key || !laps) return map;
       laps.forEach(lap => {
          const num = lap.driver_number;
          if (lap.lap_duration && (!map[num] || lap.lap_duration < map[num].lap_duration)) {
@@ -99,8 +101,8 @@ function DetailWeekend() {
 
    // sorted drivers by fastest lap
    const sortedDrivers = useMemo(() => {
-      if (!selectedSession || !selectedSession.session_key || !drivers) return [];
-      if (selectedSession.session_type !== "Race"){
+      if (!oSelectedSession || !oSelectedSession.session_key || !drivers) return [];
+      if (oSelectedSession.session_type !== "Race"){
          return [...drivers].sort((a, b) => {
             const lapA = fastestLapByDriver[a.driver_number];
             const lapB = fastestLapByDriver[b.driver_number];
@@ -110,9 +112,9 @@ function DetailWeekend() {
             return lapA.lap_duration - lapB.lap_duration;
          });
       }
-      const nUse = (selectedSession.session_name === "Sprint") ? 1 : 0;
+      const nUse = (oSelectedSession.session_name === "Sprint") ? 1 : 0;
 
-      return getReorderByLastPosition(drivers, racePositions[nUse].result);
+      return getReorderByLastPosition(drivers, aaRacePositions[nUse].result);
    }, [drivers, fastestLapByDriver]);
 
    function DriverRow({ driver, index }) {
@@ -120,9 +122,9 @@ function DetailWeekend() {
       const constructorId = getConstrocturIdWithDriverNo(driver);
       let oStartPosition;;
       let sClass = "";
-      if (selectedSession.session_type === "Race"){
-         const nUse = (selectedSession.session_name === "Sprint") ? 1 : 0;
-         oStartPosition = racePositions[nUse].start.find((number) => number.driver_number === driver.driver_number)
+      if (oSelectedSession.session_type === "Race"){
+         const nUse = (oSelectedSession.session_name === "Sprint") ? 1 : 0;
+         oStartPosition = aaRacePositions[nUse].start.find((number) => number.driver_number === driver.driver_number)
          sClass = (index<oStartPosition.position) ? "fa-solid fa-caret-up"
                   : (index>>oStartPosition.position) ? "fa-solid fa-caret-down"
                   : "fa-solid fa-minus"
@@ -132,7 +134,7 @@ function DetailWeekend() {
          <tr className={constructorId} key={driver.driver_number}>
             <td>{index}</td>
             <td>{driver.last_name}</td>
-            {selectedSession.session_type === "Race" ? (
+            {oSelectedSession.session_type === "Race" ? (
                <td>
                   {getDriverRaceResultPoints(index)}
                   <i className={sClass}></i>
@@ -147,30 +149,28 @@ function DetailWeekend() {
    return (
       <div className="container wide">
          <div className="data-container">
-            <div className="header-go-back">
-               <i className="fa-solid fa-arrow-left" onClick={() => navigate(-1)}></i>
-            </div>
-            {selectedSession ? (
+            <div className="header-go-back"><ButtonBack /></div>
+            {oSelectedSession ? (
                <div className="selected-session">
-                  <h1>{selectedSession.session_name}</h1>
+                  <h1>{oSelectedSession.session_name}</h1>
                   <div className="session-info">
-                     <div className="info-left">{selectedSession.location}, {selectedSession.country_name}</div>
-                     <div className="info-right">{getDateFormation(selectedSession.date_start, true)}</div>
+                     <div className="info-left">{oSelectedSession.location}, {oSelectedSession.country_name}</div>
+                     <div className="info-right">{getDateFormation(oSelectedSession.date_start, true)}</div>
                   </div>
                </div>
             ) : (
                <h1>{t('loading')}</h1>
             )}
-            {sessions.length > 0 && (
-               <SessionButtons sessions={sessions}
-                              selectedSession={selectedSession}
+            {arrSessions.length > 0 && (
+               <SessionButtons arrSessions={arrSessions}
+                              oSelectedSession={oSelectedSession}
                               onSelect={setSelectedSession}/>
             )}
          </div>
          <div className="list-container">
             <table className="table-session-standing">
                <tbody>
-                  {loading ? (
+                  {bLoading ? (
                      <tr><td colSpan={3}>{t('loading')}</td></tr>
                   ) : sortedDrivers.length > 0 ? (
                      sortedDrivers.map((driver, index) => (

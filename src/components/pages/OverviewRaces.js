@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import CircuitCard from "../components/CircuitCard";
+import CardCircuit from "../components/CardCircuit";
 import { getRaceActive } from "../../utilities/usefullUtils";
 import ButtonBackToTop from "../components/ButtonBackToTop";
 import ButtonJumpTo from "../components/ButtonJumpTo";
@@ -20,7 +20,7 @@ function OverviewRaces({ arrRaceList }) {
       <div className="card-list-col-three">
          {arrRaceList.map((data, index) => {
             const bCurrent = getRaceActive(data);
-            return <CircuitCard {...data} key={data.round} bCurrent={bCurrent} forwardRef={(el) => (cardRefs.current[index] = el)}/>
+            return <CardCircuit {...data} key={data.round} bCurrent={bCurrent} forwardRef={(el) => (cardRefs.current[index] = el)}/>
          })}
          <ButtonJumpTo scrollToNextRace={scrollToNextRace} />
          <ButtonBackToTop />

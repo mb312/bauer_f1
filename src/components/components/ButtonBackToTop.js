@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function ButtonBackToTop({ threshold = 200 }) {
-   const [show, setShow] = useState(false);
+   const [bShow, setShow] = useState(false);
 
    useEffect(() => {
       const handleScroll = () => setShow(window.scrollY > threshold);
@@ -9,11 +9,9 @@ function ButtonBackToTop({ threshold = 200 }) {
       return () => window.removeEventListener("scroll", handleScroll);
    }, [threshold]);
 
-   const handleClick = () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-   };
+   const handleClick = () => window.scrollTo({ top: 0, behavior: "smooth" });
    
-   return show ? (
+   return bShow ? (
       <button className="btn-back-to-top" onClick={handleClick}>
          <i className="fa-solid fa-angle-up"></i>
       </button>

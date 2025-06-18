@@ -1,18 +1,20 @@
 import React, { useEffect, useRef } from "react";
-import DriverCard from "../components/DriverCard";
-import BackToTopButton from "../components/ButtonBackToTop";
+import CardDriver from "../components/CardDriver";
+import ButtonBackToTop from "../components/ButtonBackToTop";
 import { useDriverStanding } from "../../context/DriverStandingContext";
+import { useTranslation } from "react-i18next";
 
 function OverviewDriver() {
-   const {driverList, loading} = useDriverStanding();
+   const { t } = useTranslation();
+   const {arrDriverList, bLoading} = useDriverStanding();
       
-   if (loading) return <div>Loading...</div>;
+   if (bLoading) return <div>t('loading')</div>;
    return (
       <div className="card-list-col-three">
-         {driverList.map((data) =>{
-            return <DriverCard {...data} key={data.position} />
+         {arrDriverList.map((data) =>{
+            return <CardDriver {...data} key={data.position} />
          })}
-         <BackToTopButton />
+         <ButtonBackToTop />
       </div>      
   )
 }

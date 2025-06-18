@@ -1,23 +1,22 @@
-import React from "react";
 import DriverTable from "../blocks/DriverTable";
 import MainCountdown from "../blocks/MainCountdown";
 import NextRaceInfo from "../blocks/NextRaceInfo";
 import { useTranslation } from 'react-i18next';
 
-function Home({nextRace,nextRaceDate}) {
+function Home({oNextRace,dNextRaceDate}) {
    const { t } = useTranslation();
-   const oGrandPrix = {date: nextRace.date,time: nextRace.time}
-
+   const oGrandPrix = {date: oNextRace.date,time: oNextRace.time}
+   
+   if (!dNextRaceDate) return <div></div>;
+      
    return (
       <div className="container">
          <div className="data-container">
-            <h1>{t('next_race')} <br/>{nextRace.raceName}</h1>
-            {nextRaceDate && <MainCountdown nextRaceDate={nextRaceDate} />}
-            <NextRaceInfo nextRace={nextRace} oGrandPrix={oGrandPrix} />
+            <h1>{t('next_race')} <br/>{oNextRace.raceName}</h1>
+            {oNextRace && <MainCountdown dNextRaceDate={dNextRaceDate} />}
+            <NextRaceInfo oNextRace={oNextRace} oGrandPrix={oGrandPrix} />
          </div>
-         <div className="list-container">
-            <DriverTable/>
-         </div>
+         <div className="list-container"><DriverTable/></div>
       </div>
   )
 }

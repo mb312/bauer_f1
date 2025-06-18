@@ -1,22 +1,18 @@
-import React, { useEffect, useRef } from "react";
-import TeamCard from "../components/TeamCard";
+import CardTeam from "../components/CardTeam";
 import { useTeamStanding } from "../../context/TeamStandingContext";
 import BackToTopButton from "../components/ButtonBackToTop";
+import { useTranslation } from "react-i18next";
 
 function OverviewTeams() {
-   const { teamlist, loading } = useTeamStanding();
-   const firstRender = useRef(true);
+   const { t } = useTranslation();
+   const { arrTeamlist, bLoading } = useTeamStanding();
 
-   useEffect(() => {
-      if (firstRender.current)firstRender.current = false;
-   }, []);
-
-   if (loading) return <div>Loading...</div>;
+   if (bLoading) return <div>t('loading')</div>;
 
    return (
       <div className="card-list-col-two">
-         {teamlist.map((data) => (
-            <TeamCard {...data} key={data.position} />
+         {arrTeamlist.map((data) => (
+            <CardTeam {...data} key={data.position} />
          ))}
          <BackToTopButton />
       </div>

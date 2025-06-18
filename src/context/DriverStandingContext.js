@@ -4,8 +4,8 @@ const URL_DRIVERSTANDING = 'https://api.jolpi.ca/ergast/f1/2025/driverstandings/
 const DriverStandingContext = createContext();
 
 export function DriverStandingProvider({children}){
-   const [driverList, setDriverList] = useState([]);
-   const [loading, setLoading] = useState(true);
+   const [arrDriverList, setDriverList] = useState([]);
+   const [bLoading, setLoading] = useState(true);
    
    useEffect(() => {
       fetch(URL_DRIVERSTANDING)
@@ -20,7 +20,7 @@ export function DriverStandingProvider({children}){
    },[]);
    
    return (
-      <DriverStandingContext.Provider value={{driverList, loading}}>
+      <DriverStandingContext.Provider value={{arrDriverList, bLoading}}>
          {children}
       </DriverStandingContext.Provider>
    )

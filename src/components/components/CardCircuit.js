@@ -3,7 +3,7 @@ import { getIsEventOver, getLocalStringDate } from "../../utilities/usefullUtils
 import { getTrackFlagImg, getTrackImg } from "../../utilities/raceUtils";
 import { useNavigate } from "react-router-dom";
 
-const CircuitCard = (props) => {
+const CardCircuit = (props) => {
    const navigate = useNavigate(); 
    const oDate = {date: props.date,time:props.time};
    const dDate = getLocalStringDate(oDate);
@@ -42,4 +42,4 @@ const CircuitCard = (props) => {
       </div>
    )
 }
-export default CircuitCard;
+export default CardCircuit;

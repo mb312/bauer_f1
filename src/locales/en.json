@@ -15,5 +15,7 @@
    "position": "Position",
    "points": "Points",
    "coming_soon": "coming soon...",
-   "no_data": "no data found"
+   "no_data": "no data found",
+   "loading": "Daten werden geladen...",
+   "unkown:": "unkown"
 }

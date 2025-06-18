@@ -1,20 +1,18 @@
-import React from "react";
 import { getTeamLogoURL } from "../../utilities/constructorUtils";
 import { getDriverImageURL, getDrivernumber } from "../../utilities/driverUtils";
 import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 
-const DriverCard = (props) => { 
+const CardDriver = (props) => { 
    const navigate = useNavigate();
    const oDriver = props.Driver;
    const arrFound = props.Constructors;
    const oConstructor = arrFound[(arrFound.length-1)];
+   const oRanking = {position: props.position, points:props.points};
    const sDriverName = oDriver.givenName+" "+oDriver.familyName;
-   const teamColor = { color: `var(--color-${oConstructor.constructorId})` };
-
-   const handleClick = () => {
-      navigate(`/driver/${oDriver.driverId}`,{ state:{driver:oDriver,constructor:oConstructor,position:props.position,points:props.points}});
-   };
+   const oTeamColor = { color: `var(--color-${oConstructor.constructorId})` };
+   
+   const handleClick = () => navigate(`/driver/${oDriver.driverId}`,{ state:{driver:oDriver,constructor:oConstructor, oRanking: oRanking}});
    
    return (
       <div className="card" onClick={handleClick}>
@@ -29,9 +27,7 @@ const DriverCard = (props) => {
             </div>
          </div>
          <div className="card-end-split">
-            <div className="end-number" style={teamColor} >
-               {getDrivernumber(oDriver)}
-            </div>
+            <div className="end-number" style={oTeamColor}>{getDrivernumber(oDriver)}</div>
             <div className="end-img">
                <img src={getDriverImageURL(oDriver)} alt={`${sDriverName} portrait`} loading="lazy" />
             </div>
@@ -40,11 +36,11 @@ const DriverCard = (props) => {
    )
 }
 
-DriverCard.propTypes = {
+CardDriver.propTypes = {
    Driver: PropTypes.object.isRequired,
    Constructors: PropTypes.array.isRequired,
    position: PropTypes.string.isRequired,
    points: PropTypes.string.isRequired
 }
 
-export default DriverCard;
+export default CardDriver;

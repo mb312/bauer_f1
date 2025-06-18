@@ -19,34 +19,34 @@ export const DRIVER_COLOR_KEY = [{ apiKey: 'Aston Martin',colorKey: 'aston_marti
                                  { apiKey: 'Haas F1 Team',colorKey: 'haas'}
 ]
 
-export function getTeamLogoConstructorId(constructorId,arrMapping) {
-  const found = arrMapping.find(element => element.apiKey === constructorId);
-  return found ? found.f1key : constructorId;
+export function getTeamLogoConstructorId(nConstructorId,arrMapping) {
+  const oFound = arrMapping.find(element => element.apiKey === nConstructorId);
+  return oFound ? oFound.f1key : nConstructorId;
 }
 
-export function getTeamLogoURL(constructorId){
-   return URL_TEAM_LOGOS+getTeamLogoConstructorId(constructorId,LOGO_MAP_IDS);
+export function getTeamLogoURL(nConstructorId){
+   return URL_TEAM_LOGOS+getTeamLogoConstructorId(nConstructorId,LOGO_MAP_IDS);
 }
 
-export function getMiniTeamLogoURL(constructorId){
-   return URL_TEAM_LOGOS_MINI+getTeamLogoConstructorId(constructorId,MINI_LOGO_MAP_IDS)+"-logo.png";
+export function getMiniTeamLogoURL(nConstructorId){
+   return URL_TEAM_LOGOS_MINI+getTeamLogoConstructorId(nConstructorId,MINI_LOGO_MAP_IDS)+"-logo.png";
 }
 
-export function getTeamCarURL(constructorId){
-   return URL_TEAM_CARS+getTeamLogoConstructorId(constructorId,MINI_LOGO_MAP_IDS)+".png"
+export function getTeamCarURL(nConstructorId){
+   return URL_TEAM_CARS+getTeamLogoConstructorId(nConstructorId,MINI_LOGO_MAP_IDS)+".png"
 }
 
-export function getDriversForTeam(constructorId){
-   const {driverList} = useDriverStanding();
-   return driverList.filter(driver => driver.Constructors[(driver.Constructors.length-1)].constructorId === constructorId);
+export function getDriversForTeam(nConstructorId){
+   const {arrDriverList} = useDriverStanding();
+   return arrDriverList.filter(driver => driver.Constructors[(driver.Constructors.length-1)].constructorId === nConstructorId);
 }
 
 export function getConstrocturIdWithDriverNo(oDriver){
-   const {driverList} = useDriverStanding();
+   const {arrDriverList} = useDriverStanding();
    let sDriverNo = oDriver.driver_number;
    if (sDriverNo == 1) sDriverNo=33;
    let sTeamId = "";
-   driverList.map((driver) => {
+   arrDriverList.map((driver) => {
       if (driver.Driver.permanentNumber == sDriverNo) return sTeamId = driver.Constructors[(driver.Constructors.length-1)].constructorId;
    });
    if (sTeamId !== "") return sTeamId;

@@ -1,13 +1,10 @@
-import React from 'react';
 import Countdown from '../components/Countdown';
 
-function MainCountdown({nextRaceDate}){
+function MainCountdown({dNextRaceDate}){
    return (
-      <>
-         <div className="timer-container">
-            <Countdown toDate={nextRaceDate} />
-         </div>
-      </>
+      <div className="timer-container">
+         <Countdown dToDate={dNextRaceDate} />
+      </div>
    )
 }
 
