@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "ajv": "^8.17.1",
     "axios": "^1.9.0",
     "core-js-pure": "^3.43.0",
+    "emailjs-com": "^3.2.0",
     "i18next": "^25.2.1",
     "i18next-browser-languagedetector": "^8.2.0",
     "i18next-http-backend": "^3.0.2",
@@ -18,7 +21,7 @@
     "react-i18next": "^15.5.3",
     "react-router-dom": "^7.6.1",
     "react-scripts": "^5.0.1",
-    "typescript": "^5.8.3",
+    "typescript": "^5.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

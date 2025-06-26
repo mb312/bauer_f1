@@ -17,5 +17,14 @@
    "coming_soon": "coming soon...",
    "no_data": "no data found",
    "loading": "Daten werden geladen...",
-   "unkown:": "unkown"
+   "unkown:": "unkown",
+   "name": "Name",
+   "email": "E-Mail",
+   "message": "Message",
+   "send": "send",
+   "contact_me": "contact me",
+   "contact_me_text": "Have feedback, suggestions, or ideas for improvement? Let me know—your input helps me make things better. I'll get back to you as soon as possible.",
+   "email_sending": "sending message...",
+   "email_error": "Something went wrong. Please try again.",
+   "email_success": "Your message was sent successfully."
 }

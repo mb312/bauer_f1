@@ -1,0 +1,148 @@
+.form-container {
+   width: 90%;
+   margin: 2rem auto;
+   align-items: center;
+   justify-content: center;
+   border-radius: 15px;
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.container-header {
+   padding: 1rem;
+}
+
+.container-header h1 {
+   font-size: 2rem;
+}
+
+.container-header p {
+   font-size: 1rem;
+   margin: 1rem 0 0;
+   text-align: center;
+}
+
+form {
+   padding: 1rem;
+}
+
+form .input-group {
+   display: flex;
+   flex-direction: row;
+   gap: 25px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 15px;
+   border: 1px solid var(--black-light);
+   border-radius: 10px;
+   box-sizing: border-box;
+   font-size: 1rem;
+}
+
+button[type="submit"] {
+   background: var(--main-white);
+   font-size: 1.3rem;
+   color: var(--main-black);
+   padding: 1rem;
+   border: 1px solid var(--main-black);
+   border-radius: 10px;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-left: auto;
+}
+
+button[type="submit"] i {
+   font-size: 1.5rem;
+   padding-right: 10px;
+}
+
+/* pop-up */
+.popup-backdrop {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   z-index: 1000;
+}
+
+.popup-content {
+   background: white;
+   border-radius: 8px;
+   max-width: 400px;
+   width: 90%;
+   text-align: center;
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.popup-close {
+   height: 65px;
+   width: 65px;
+   background: var(--main-red);
+   border: none;
+   border-bottom-left-radius: 15px;
+   float: right;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.popup-close i {
+   color: var(--main-white);
+   font-size: 3rem;
+   cursor: pointer;
+}
+
+.popup-content img {
+   width: 90%;
+}
+
+.popup-content p,
+.overlay p {
+   margin: 1rem;
+   font-size: 1.5rem;
+}
+
+.popup-content button {
+   background: var(--main-white);
+   color: var(--main-black);
+   padding: 10px 20px;
+   font-size: 1.3rem;
+   border: 1px solid var(--main-black);
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.popup-content button:hover {
+   background: var(--main-red);
+   color: var(--main-white);
+   border: none;
+}
+
+@media screen and (max-width: 650px) {
+   form .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+   }
+
+   button[type="submit"] {
+      font-size: 1.1rem;
+      padding: .5rem;
+   }
+
+   button[type="submit"] i {
+      font-size: 1.1rem;
+      padding-right: .5rem;
+   }
+}

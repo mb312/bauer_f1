@@ -15,6 +15,7 @@ import OverviewRaces from './components/pages/OverviewRaces';
 import DetailDriver from './components/pages/DetailDriver';
 import DetailTeam from './components/pages/DetailTeam';
 import DetailSession from './components/pages/DetailWeekend';
+import ContactMe from './components/pages/ContactMe';
 
 const URL_RACES = 'https://api.jolpi.ca/ergast/f1/2025/races/';
 
@@ -62,6 +63,7 @@ function App() {
                <Route path='/overviewDriver' element={<OverviewDriver />} />
                <Route path='/overviewTeams' element={<OverviewTeams />} />
                <Route path='/overviewRaces' element={<OverviewRaces arrRaceList={oRaceList} oNextRace={oNextRace} />} />
+               <Route path='/contactMe' element={<ContactMe />} />
                <Route path='/driver/:driverId' element={<DetailDriver />} />
                <Route path='/team/:constructorId' element={<DetailTeam />} />
                <Route path='/session/:date' element={<DetailSession />} />
