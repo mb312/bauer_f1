@@ -16,7 +16,9 @@ export const DRIVER_COLOR_KEY = [{ apiKey: 'Aston Martin',colorKey: 'aston_marti
                                  { apiKey: 'Williams',colorKey: 'williams'},
                                  { apiKey: 'Red Bull Racing',colorKey: 'red_bull'},
                                  { apiKey: 'Mercedes',colorKey: 'mercedes'},
-                                 { apiKey: 'Haas F1 Team',colorKey: 'haas'}
+                                 { apiKey: 'Haas F1 Team',colorKey: 'haas'},
+                                 { apiKey: 'McLaren', colorKey:'mclaren'},
+                                 { apiKey: "Kick Sauber", colorKey: "sauber" }
 ]
 
 export function getTeamLogoConstructorId(nConstructorId,arrMapping) {
@@ -46,13 +48,14 @@ export function getConstrocturIdWithDriverNo(oDriver){
    let sDriverNo = oDriver.driver_number;
    if (sDriverNo == 1) sDriverNo=33;
    let sTeamId = "";
+
    arrDriverList.map((driver) => {
       if (driver.Driver.permanentNumber == sDriverNo) return sTeamId = driver.Constructors[(driver.Constructors.length-1)].constructorId;
    });
    if (sTeamId !== "") return sTeamId;
    
    DRIVER_COLOR_KEY.map((oFind) => {
-      if (oFind.apiKey === oDriver.team_name) return sTeamId =oFind.colorKey;
+      if (oFind.apiKey === oDriver.team_name) return sTeamId = oFind.colorKey;
    })
 
    return sTeamId;
