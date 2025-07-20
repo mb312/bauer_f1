@@ -102,6 +102,7 @@ function DetailWeekend() {
    // sorted drivers by fastest lap
    const sortedDrivers = useMemo(() => {
       if (!oSelectedSession || !oSelectedSession.session_key || !drivers) return [];
+      console.log(oSelectedSession);
       if (oSelectedSession.session_type !== "Race"){
          return [...drivers].sort((a, b) => {
             const lapA = fastestLapByDriver[a.driver_number];
@@ -129,14 +130,14 @@ function DetailWeekend() {
                   : (index>>oStartPosition.position) ? "fa-solid fa-caret-down"
                   : "fa-solid fa-minus"
       }
-
+      
       return (
          <tr className={constructorId} key={driver.driver_number}>
             <td>{index}</td>
             <td>{driver.last_name}</td>
             {oSelectedSession.session_type === "Race" ? (
                <td>
-                  {getDriverRaceResultPoints(index)}
+                  {getDriverRaceResultPoints(index,oSelectedSession.session_name)}
                   <i className={sClass}></i>
                </td>
             ) : (

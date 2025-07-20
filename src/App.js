@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {BrowserRouter as Router, Routes, Route} from ' v';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
 import './i18n';
 import './components/css/Main.css';
