@@ -135,3 +135,21 @@ export function getSessionFilter(oWeekend) {
 
    return "date_start>=" + sStart + "&date_end<=" + sEnd;
 }
+
+export function getCardClassArray(){
+   return ["card","card-large","card-wide","card border"];
+}
+/* pass object with date and return formated date for display */
+export function getEventDate(oEvent) {
+   const dEventDate = new Date(oEvent.date);
+   const dToday = new Date();
+
+   if (dEventDate.toDateString() === dToday.toDateString()) return "Today"
+   return dEventDate.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' });
+}
+
+/* pass object with time and return formated time for display */
+export function getEventTime(oEvent) {
+   const arrTime = oEvent.time.split(':');
+   return `${arrTime[0]}:${arrTime[1]}`;
+}
