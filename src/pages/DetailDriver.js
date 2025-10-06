@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { getDriverBGImageURL, getDriverHelmetImageURL, getDriverName, getDriverNumber } from "../utilities/driverUtils";
+import { getDriverBGImageURL, getDriverHelmetImageURL, getDriverName, getDriverNumber } from "../utilities/DriverUtils";
 import { getDateFormation } from "../utilities/UsefullUtils";
 import ButtonBack from '../components/components/ButtonBack';
 import '../styles/DriverDetail.css';

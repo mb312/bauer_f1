@@ -10,6 +10,10 @@
    gap: 1rem;
 }
 
+.overview-container{
+   margin-top: 1.5rem;
+}
+
 /* used in Countdown.js*/
 .timer-container {
    margin: 1rem;
@@ -110,7 +114,7 @@
    height: fit-content;
    justify-content: center;
    align-items: stretch;
-   margin: 3rem 0 1rem;
+   margin: 1.5rem 0;
 }
 
 .card-list-col-auto {

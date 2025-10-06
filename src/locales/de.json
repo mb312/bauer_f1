@@ -26,5 +26,8 @@
    "contact_me_text": "Hast du Feedback, Vorschläge oder Ideen zur Verbesserung? Lass es mich wissen – dein Input hilft mir, Dinge besser zu machen. Ich melde mich so schnell wie möglich bei dir.",
    "email_sending": "Nachricht wird gesendet...",
    "email_error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
-   "email_success": "Deine Nachricht wurde erfolgreich versendet.'"
+   "email_success": "Deine Nachricht wurde erfolgreich versendet.'",
+   "driver_standing": "Fahrer WM-Stand",
+   "team_standing": "Konstrukteur WM-Stand",
+   "race_schedule": "Rennkalender"
 }

@@ -6,6 +6,7 @@ import OverviewRaces from './pages/OverviewRaces';
 import DetailDriver from './pages/DetailDriver';
 import DetailTeam from './pages/DetailTeam';
 import DetailCircuit from './pages/DetailCircuit';
+import ContactMe from './pages/ContactMe';
 import './styles/General.css';
 import './styles/Main.css';
 
@@ -16,6 +17,7 @@ export default function AppRoutes({ oNextRace, dNextRaceDate }) {
       <Route path='/overviewDrivers' element={<OverviewDrivers />} />
       <Route path='/overviewTeams' element={<OverviewTeams />} />
       <Route path='/overviewRaces' element={<OverviewRaces />} />
+      <Route path='/contactMe' element={<ContactMe />} />
       <Route path='/driver/:driverId' element={<DetailDriver />} />
       <Route path='/team/:constructorId' element={<DetailTeam />} />
       <Route path='/circuit/:date' element={<DetailCircuit />} />

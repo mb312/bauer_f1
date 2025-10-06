@@ -26,5 +26,8 @@
    "contact_me_text": "Have feedback, suggestions, or ideas for improvement? Let me know—your input helps me make things better. I'll get back to you as soon as possible.",
    "email_sending": "sending message...",
    "email_error": "Something went wrong. Please try again.",
-   "email_success": "Your message was sent successfully."
+   "email_success": "Your message was sent successfully.",
+   "driver_standing": "Driver Standing",
+   "team_standing": "Team Standing",
+   "race_schedule": "Race Schedule"
 }

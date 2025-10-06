@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useTranslation } from 'react-i18next';
-import LoadingDots from './components/LoadingDots';
-import ModalPopUp from './components/ModalPopUp';
-import './css/ContactMe.css';
+import LoadingDots from '../components/components/LoadingDots';
+import ModalPopUp from '../components/components/ModalPopUp';
+import '../styles/ContactMe.css';
 
 const URL_SUCCESS = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG1paTFib3hpaGliYWs3aXFpM3Axb2xtZHVubGhzbmhrbXRveXFrbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/EH1UaNOTWMuZ4OlamN/giphy.gif"
 const URL_ERROR = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjN5bDh0NzEzbDZ6dmpvbXYwMTczZzV4YWQ0bGl2NWVqczE2a25hayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/moDjnaPjQiLS6qrece/giphy.gif";

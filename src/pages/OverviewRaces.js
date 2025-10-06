@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import Card from '../components/components/Card';
 import oRaces from '../assets/data/races.json';
 import ButtonBackToTop from "../components/components/ButtonBackToTop";
 import ButtonJumpTo from "../components/components/ButtonJumpTo";
 
 function OverviewRaces() {
+   const { t } = useTranslation();
    const cardRefs = useRef([]);
    const arrRaces = oRaces.races;
    
@@ -17,12 +19,15 @@ function OverviewRaces() {
    };
    
    return (
-      <div className="card-list-col-auto-wide">
-         {arrRaces.map((data) => {
-            return <Card type="race" data={data} cardClass={3} key={data.round} />
-         })}
-         <ButtonJumpTo scrollToNextRace={scrollToNextRace} />
-         <ButtonBackToTop />
+      <div className='overview-container'>
+         <h1>{t('race_schedule')}</h1>
+         <div className="card-list-col-auto-wide">
+            {arrRaces.map((data) => {
+               return <Card type="race" data={data} cardClass={3} key={data.round} />
+            })}
+            <ButtonJumpTo scrollToNextRace={scrollToNextRace} />
+            <ButtonBackToTop />
+         </div>
       </div>
    )
 }

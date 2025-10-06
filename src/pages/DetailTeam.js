@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { getDriversForTeam, getTeamLogoURL } from "../utilities/constructorUtils";
-import { getDriverBGImageURL } from "../utilities/driverUtils";
+import { getDriversForTeam, getTeamLogoURL } from "../utilities/ConstructorUtils";
+import { getDriverBGImageURL } from "../utilities/DriverUtils";
 import ButtonBack from '../components/components/ButtonBack';
 import '../styles/DetailTeam.css';
 

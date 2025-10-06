@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
 import NavLink from './components/NavLink';
+import { useTranslation } from 'react-i18next';
 
 const LOGO_URL = "https://media.formula1.com/common/logos/f1_logo_red.svg";
-const arrLinks = [{ toLink: "/overviewDrivers", title: 'driver' },
-                  { toLink: "/overviewTeams", title: 'team' },
-                  { toLink: "/overviewRaces", title: 'races' }]
 
 function PageHeader() {
+   const { t } = useTranslation();
+   const arrLinks = [{ toLink: "/overviewDrivers", title: t('driver') },
+                     { toLink: "/overviewTeams", title: t('team') },
+                     { toLink: "/overviewRaces", title: t('races') }]
+
    return (
       <nav className="nav-bar">
          <section className="nav-container">

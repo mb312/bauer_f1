@@ -1,4 +1,4 @@
-import { getDriverNumber } from "./driverUtils";
+import { getDriverNumber } from "./DriverUtils";
 import { circuitImages, driverImages, teamLogoImages, teamCarImages } from '../assets/imageMappings';
 import { getEventDate, getEventTime } from "./UsefullUtils";
 

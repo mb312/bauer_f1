@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { formatLapTime, getDateFormation, getDriverRaceResultPoints, getLastPositionOfDriver, getReorderByLastPosition, getSessionFilter, getStartingPostionOfDriver } from "../utilities/UsefullUtils";
-import { getConstrocturIdWithDriverNo } from "../utilities/constructorUtils";
+import { getConstrocturIdWithDriverNo } from "../utilities/ConstructorUtils";
 import '../styles/DetailSession.css';
 import SessionButtons from "../components/blocks/SessionButtons";
 

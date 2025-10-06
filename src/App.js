@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
+import './i18n';
 import PageHeader from './components/PageHeader';
 import PageFooter from './components/PageFooter';
 import useNextRace from './hooks/UseNextRace';
