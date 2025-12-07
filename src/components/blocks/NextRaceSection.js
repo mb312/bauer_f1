@@ -7,7 +7,7 @@ function NextRaceSection({ oNextRace, dNextRaceDate }) {
    const { t } = useTranslation();
    const oGrandPrix = { date: oNextRace.date, time: oNextRace.time };
    const arrNextRace = getRaceSessions(oNextRace, oGrandPrix);
-
+   
    return (
       <section className="next-container">
          <div className="next-info">

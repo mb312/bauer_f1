@@ -23,9 +23,8 @@ function OverviewRaces() {
          <h1>{t('race_schedule')}</h1>
          <div className="card-list-col-auto-wide">
             {arrRaces.map((data) => {
-               return <Card type="race" data={data} cardClass={3} key={data.round} />
-            })}
-            <ButtonJumpTo scrollToNextRace={scrollToNextRace} />
+               if (data.round !=="0") return <Card type="race" data={data} cardClass={3} key={data.round} />
+            })}            
             <ButtonBackToTop />
          </div>
       </div>

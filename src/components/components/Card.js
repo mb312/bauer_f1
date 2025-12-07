@@ -11,9 +11,10 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
 
    const handleClick = () => {
       if (type === "race") {
-         const oRace = { FirstPractice: data.FirstPractice, date: data.date };
+         return;
+         /*const oRace = { FirstPractice: data.FirstPractice, date: data.date };
          const oDate = getLocalStringDate(data.FirstPractice);
-         navigate(`/circuit/${oDate}`, { state: { eventNo: 0, oWeekend: oRace } });
+         navigate(`/circuit/${oDate}`, { state: { eventNo: 0, oWeekend: oRace } });*/
       } else if (type === "driver") {
          const oDriver = data.Driver;
          const oConstructor = data.Constructors[data.Constructors.length - 1];
@@ -51,8 +52,6 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
          style={cardStyle}
          onClick={handleClick}
          role="button"
-         tabIndex={0}
-         onKeyPress={e => { if (e.key === 'Enter' || e.key === ' ') handleClick(); }}
          aria-label={`${type} card: ${type === 'race' ? data.raceName : type === 'driver' ? data.Driver?.familyName : data.Constructor?.name}`}
       >
          <div className="card-header-container">{cardContent.header}</div>

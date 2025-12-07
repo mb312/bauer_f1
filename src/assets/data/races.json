@@ -839,6 +839,41 @@
             "date": "2025-12-06",
             "time": "14:00:00Z"
          }
+      },
+      {
+         "season": "2026",
+         "round": "0",
+         "url": "https://en.wikipedia.org/wiki/2025_Australian_Grand_Prix",
+         "raceName": "Australian Grand Prix",
+         "Circuit": {
+            "circuitId": "albert_park",
+            "url": "https://en.wikipedia.org/wiki/Albert_Park_Circuit",
+            "circuitName": "Albert Park Grand Prix Circuit",
+            "Location": {
+               "lat": "-37.8497",
+               "long": "144.968",
+               "locality": "Melbourne",
+               "country": "Australia"
+            }
+         },
+         "date": "2026-03-08",
+         "time": "05:00:00Z",
+         "FirstPractice": {
+            "date": "2026-03-06",
+            "time": "02:30:00Z"
+         },
+         "SecondPractice": {
+            "date": "2026-03-06",
+            "time": "06:00:00Z"
+         },
+         "ThirdPractice": {
+            "date": "2026-03-07",
+            "time": "02:30:00Z"
+         },
+         "Qualifying": {
+            "date": "2026-03-07",
+            "time": "06:00:00Z"
+         }
       }
    ]
 }
