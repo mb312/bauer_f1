@@ -1,0 +1,38 @@
+export const driverAssignedToTeam = {
+    albon: {constructorId: "williams",name: "Williams"},
+    alonso: {constructorId: "aston_martin",name: "Aston Martin"},
+    antonelli: {constructorId: "mercedes",name: "Mercedes"},
+    bearman: {constructorId: "haas",name: "Haas F1 Team"},
+    bortoleto: {constructorId: "audi",name: "Audi"},
+    bottas: {constructorId: "cadillac",name: "Cadillac F1 Team"},
+    colapinto: {constructorId: "alpine",name: "Alpine F1 Team"},
+    gasly: {constructorId: "alpine",name: "Alpine F1 Team"},
+    hadjar: {constructorId: "red_bull",name: "Red Bull"},
+    hamilton: {constructorId: "ferrari",name: "Ferrari"},
+    hulkenberg: {constructorId: "audi",name: "Audi"},
+    lawson: {constructorId: "rb",name: "RB F1 Team"},
+    leclerc:{constructorId: "ferrari",name: "Ferrari"}, //check id 
+    lindblad: {constructorId: "rb",name: "RB F1 Team"},
+    norris: {constructorId: "mclaren",name: "McLaren"},
+    ocon: {constructorId: "haas",name: "Haas F1 Team"},
+    piastri: {constructorId: "mclaren",name: "McLaren"},
+    perez: {constructorId: "cadillac",name: "Cadillac F1 Team"},
+    russell: {constructorId: "mercedes",name: "Mercedes"},
+    sainz: {constructorId: "williams",name: "Williams"},
+    stroll: {constructorId: "aston_martin",name: "Aston Martin"},
+    max_verstappen: {constructorId: "red_bull",name: "Red Bull"},
+}
+
+export const teamDefaultData = {
+    alpine: {constructorId: "alpine",name: "Alpine F1 Team"},
+    audi: {constructorId: "audi",name: "Audi"},
+    aston_martin: {constructorId: "aston_martin",name: "Aston Martin"},
+    cadillac: {constructorId: "cadillac",name: "Cadillac F1 Team"},
+    ferrari: {constructorId: "ferrari",name: "Ferrari"},
+    haas: {constructorId: "haas",name: "Haas F1 Team"},
+    mclaren: {constructorId: "mclaren",name: "McLaren"},
+    mercedes: {constructorId: "mercedes",name: "Mercedes"},
+    rb: {constructorId: "rb",name: "RB F1 Team"},
+    red_bull: {constructorId: "red_bull",name: "Red Bull"},
+    williams: {constructorId: "williams",name: "Williams"},
+}

@@ -1,10 +1,10 @@
-const WDC_MAP_NUMBER = 33;
+const WDC_MAP_NUMBER = 4;
 const URL_DRIVER_IMAGE = "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/";
 const URL_DRIVER_BG = "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/";
 const URL_HELMET = "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1024/fom-website/manual/Helmets2025/";
 
 export function getDriverNumber(oDriver){
-   let nNumber = Number(oDriver.permanentNumber);
+   let nNumber = (Number(oDriver.permanentNumber)) ? Number(oDriver.permanentNumber) : 0;
    return (nNumber === WDC_MAP_NUMBER) ? 1 : nNumber;
 }
 

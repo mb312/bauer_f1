@@ -9,7 +9,7 @@ function DetailTeam() {
    const { t } = useTranslation();
    const { state } = useLocation();
    const { constructor } = state || {};
-   const oConstructor = constructor.Constructor;
+   const oConstructor = constructor?.Constructor || constructor;
    const sConstructorId = oConstructor.constructorId;
    const arrDrivers = getDriversForTeam(sConstructorId);
    const oTeamColor = { borderRight: `2px solid var(--color-${sConstructorId})` };

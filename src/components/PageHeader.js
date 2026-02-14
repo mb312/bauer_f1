@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import NavLink from './components/NavLink';
 import { useTranslation } from 'react-i18next';
+import NavLink from './components/NavLink';
 
 const LOGO_URL = "https://media.formula1.com/common/logos/f1_logo_red.svg";
 

@@ -52,6 +52,8 @@ export const driverImages = {
 export const teamLogoImages = {
    alpine: require('../assets/images/logo/alpine_white.avif'),
    aston_martin: require('../assets/images/logo/aston_martin_white.avif'),
+   audi: require('../assets/images/logo/audi_white.avif'),
+   cadillac: require('../assets/images/logo/cadillac_white.avif'),
    ferrari: require('../assets/images/logo/ferrari_white.avif'),
    haas: require('../assets/images/logo/haas_white.avif'),
    mclaren: require('../assets/images/logo/mclaren_white.avif'),
@@ -65,12 +67,14 @@ export const teamLogoImages = {
 export const teamCarImages = {
    alpine: require('../assets/images/cars/alpine.avif'),
    aston_martin: require('../assets/images/cars/aston_martin.avif'),
+   audi: require('../assets/images/cars/audi.avif'),
+   cadillac: require('../assets/images/cars/cadillac.avif'),
    ferrari: require('../assets/images/cars/ferrari.avif'),
    haas: require('../assets/images/cars/haas.avif'),
    mclaren: require('../assets/images/cars/mclaren.avif'),
    mercedes: require('../assets/images/cars/mercedes.avif'),
    rb: require('../assets/images/cars/rb.avif'),
    red_bull: require('../assets/images/cars/red_bull.avif'),
-   sauber: require('../assets/images/cars/sauber.avif'),
+   //sauber: require('../assets/images/cars/sauber.avif'),
    williams: require('../assets/images/cars/williams.avif'),
 };

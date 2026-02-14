@@ -51,6 +51,16 @@
          "nationality": "Brazilian"
       },
       {
+         "driverId": "bottas",
+         "permanentNumber": "77",
+         "code": "BOT",
+         "url": "http://en.wikipedia.org/wiki/Valtteri_Bottas",
+         "givenName": "Valtteri",
+         "familyName": "Bottas",
+         "dateOfBirth": "1989-08-28",
+         "nationality": "Finnish"
+      },
+      {
          "driverId": "colapinto",
          "permanentNumber": "43",
          "code": "COL",
@@ -59,16 +69,6 @@
          "familyName": "Colapinto",
          "dateOfBirth": "2003-05-27",
          "nationality": "Argentine"
-      },
-      {
-         "driverId": "doohan",
-         "permanentNumber": "7",
-         "code": "DOO",
-         "url": "http://en.wikipedia.org/wiki/Jack_Doohan",
-         "givenName": "Jack",
-         "familyName": "Doohan",
-         "dateOfBirth": "2003-01-20",
-         "nationality": "Australian"
       },
       {
          "driverId": "gasly",
@@ -131,6 +131,14 @@
          "nationality": "Monegasque"
       },
       {
+         "driverId": "lindblad",
+         "code": "LIN",
+         "givenName": "Arvid",
+         "familyName": "Lindblad",
+         "dateOfBirth": "2007-08-08",
+         "nationality": "British"
+      },
+      {
          "driverId": "norris",
          "permanentNumber": "4",
          "code": "NOR",
@@ -159,6 +167,16 @@
          "familyName": "Piastri",
          "dateOfBirth": "2001-04-06",
          "nationality": "Australian"
+      },
+      {
+         "driverId": "perez",
+         "permanentNumber": "11",
+         "code": "PER",
+         "url": "http://en.wikipedia.org/wiki/Sergio_P%C3%A9rez",
+         "givenName": "Sergio",
+         "familyName": "PÃ©rez",
+         "dateOfBirth": "1990-01-26",
+         "nationality": "Mexican"
       },
       {
          "driverId": "russell",
@@ -191,18 +209,8 @@
          "nationality": "Canadian"
       },
       {
-         "driverId": "tsunoda",
-         "permanentNumber": "22",
-         "code": "TSU",
-         "url": "http://en.wikipedia.org/wiki/Yuki_Tsunoda",
-         "givenName": "Yuki",
-         "familyName": "Tsunoda",
-         "dateOfBirth": "2000-05-11",
-         "nationality": "Japanese"
-      },
-      {
          "driverId": "max_verstappen",
-         "permanentNumber": "33",
+         "permanentNumber": "3",
          "code": "VER",
          "url": "http://en.wikipedia.org/wiki/Max_Verstappen",
          "givenName": "Max",

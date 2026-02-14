@@ -13,8 +13,8 @@ function OverviewTeams() {
       <div className='overview-container'>
          <h1>{t('team_standing')}</h1>
          <div className="card-list-col-auto-wide">
-            {arrTeamlist.map((data) => (
-               <Card type="team" data={data} cardClass={2} position={data.position} points={data.points} key={data.position}/>
+            {arrTeamlist.map((data,index) => (
+               <Card type="team" data={data} cardClass={2} position={data.position} points={data.points} key={index}/>
             ))}
             <BackToTopButton />
          </div>

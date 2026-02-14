@@ -5,15 +5,15 @@ import NextRaceSection from "../components/blocks/NextRaceSection";
 
 function Home({ oNextRace, dNextRaceDate }) {
    const { t } = useTranslation();
-   const { arrDriverList } = useDriverStanding();
+   const { arrDriverList } = useDriverStanding();   
 
    if (!oNextRace || !dNextRaceDate) return <div></div>;
-
+   let bHasData = (Object.keys(arrDriverList).length>0);
    return (
       <div className="main-content">
          <NextRaceSection oNextRace={oNextRace} dNextRaceDate={dNextRaceDate} />
          <section className="next-spliter"></section>
-         <DriverTable arrDriverList={arrDriverList} />
+         {bHasData && <DriverTable arrDriverList={arrDriverList} />}
       </div>
    )
 }

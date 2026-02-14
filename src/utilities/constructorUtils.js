@@ -40,7 +40,10 @@ export function getTeamCarURL(nConstructorId){
 
 export function getDriversForTeam(nConstructorId){
    const {arrDriverList} = useDriverStanding();
-   return arrDriverList.filter(driver => driver.Constructors[(driver.Constructors.length-1)].constructorId === nConstructorId);
+   if (arrDriverList[0]?.Constructors){
+      return arrDriverList.filter(driver => driver.Constructors[(driver.Constructors.length-1)].constructorId === nConstructorId);
+   }
+   return [];
 }
 
 export function getConstrocturIdWithDriverNo(oDriver){

@@ -10,7 +10,7 @@
    gap: 1rem;
 }
 
-.overview-container{
+.overview-container {
    margin-top: 1.5rem;
 }
 
@@ -124,7 +124,8 @@
 .card-list-col-auto-large {
    grid-template-columns: repeat(auto-fit, 375px);
 }
-.card-list-col-auto-wide{
+
+.card-list-col-auto-wide {
    grid-template-columns: repeat(auto-fit, 415px);
 }
 
@@ -149,7 +150,8 @@
    border-radius: 10px;
    cursor: pointer;
 }
-.card.border{
+
+.card.border {
    border: 2px solid var(--main-black);
 }
 
@@ -222,6 +224,10 @@
    object-fit: cover;
    z-index: 2;
 }
+.card-img-container .raceImg{
+   object-position: center;
+   object-fit: contain;
+}
 
 .card-wide .card-img-container img {
    object-position: center;
@@ -235,6 +241,7 @@
       display: block;
       padding: 0;
    }
+
    .info-container {
       margin: 1rem;
       grid-template-columns: repeat(auto-fit, 275px);
@@ -243,7 +250,7 @@
    }
 }
 
-@media screen and (max-width: 750px) {   
+@media screen and (max-width: 750px) {
    .main-content {
       padding-top: 1rem;
    }
@@ -301,9 +308,11 @@
    .card-list-col-auto-large {
       grid-template-columns: repeat(auto-fit, 275px);
    }
-   .card-list-col-auto-wide{
+
+   .card-list-col-auto-wide {
       grid-template-columns: repeat(auto-fit, 375px);
    }
+
    .card {
       height: 200px;
    }
@@ -323,11 +332,16 @@
    .card-text-container,
    .card-text-container .text-block {
       height: 40px;
-      font-size: clamp(1.2rem, 3vw, 1.4rem);
+      font-size: clamp(.9rem, 3vw, 1.4rem);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      padding-bottom: 15px;
+      align-items: center;
+   }
+
+   .card-text-container img {
+      height: 80%;
+      margin-left: 5px;
    }
 
    .card .card-img-container .img-bg-text {

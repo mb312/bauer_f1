@@ -5,6 +5,7 @@ import './i18n';
 import PageHeader from './components/PageHeader';
 import PageFooter from './components/PageFooter';
 import useNextRace from './hooks/UseNextRace';
+import { YearProvider } from './context/YearContext';
 import AppProviders from './context/AppProviders';
 import AppRoutes from './AppRoutes';
 
@@ -12,7 +13,7 @@ function App() {
    const { oNextRace, dNextRaceDate } = useNextRace();
 
    return (
-      <Router>
+      <Router>         
          <PageHeader />
          <AppProviders>
             <AppRoutes oNextRace={oNextRace} dNextRaceDate={dNextRaceDate} />
