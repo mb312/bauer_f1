@@ -29,6 +29,16 @@ export function getDateFormation(sDate, bLong) {
    return sReturn;
 }
 
+export function getCurrentAge(sDate){
+   const dToday = new Date();
+   const dBirthDay = new Date(sDate);
+   let nAge = dToday.getFullYear()-dBirthDay.getFullYear();
+   const nMonthDiff = dToday.getMonth()-dBirthDay.getMonth();
+   if (nMonthDiff<0 || (nMonthDiff==0 && dToday.getDate()<dBirthDay.getDate())) nAge--;
+
+   return nAge;
+}
+
 /* change laptime (seconds) in Minutes:SS:MSS */
 export function formatLapTime(nSeconds) {
    if (typeof nSeconds !== "number" || isNaN(nSeconds)) return "-";

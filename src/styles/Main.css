@@ -30,7 +30,7 @@
 }
 
 .nav-logo{
-   font-size: 1.8rem;
+   font-size: 2rem;
    display: flex;
    align-items: center;
    justify-self: start;
@@ -38,7 +38,7 @@
    cursor: pointer;
 }
 .nav-logo img{
-   height: 3rem;
+   height: 4rem;
    margin-left: 0.5rem;
 }
 .nav-menu{
@@ -276,7 +276,7 @@ footer{
       margin-left: 10px;
    }
    .nav-logo img{
-      height: 1.5rem
+      height: 2.5rem
    }
    .nav-container i{
       font-size: 1.5rem;

@@ -5,18 +5,29 @@
    --main-grey: #737373;
    --black-light: rgba(0, 0, 0, 0.5);
    --black-lighter: rgba(0, 0, 0, 0.2);
-   --color-mclaren: #F47600;
-   --color-red_bull: #4781D7;
-   --color-rb: #6C98FF;
-   --color-ferrari: #ed1131;
-   --color-mercedes: #00D7B6;
-   --color-williams: #1868DB;
-   --color-sauber: #01c00e;
-   --color-haas: #9C9FA2;
-   --color-aston_martin: #229971;
    --color-alpine: #00A1E8;
+   --color-aston_martin: #229971;
    --color-audi: #F50537;
    --color-cadillac: #909090;
+   --color-ferrari: #ed1131;
+   --color-haas: #9C9FA2;
+   --color-mclaren: #F47600;
+   --color-mercedes: #00D7B6;
+   --color-rb: #6C98FF;
+   --color-red_bull: #4781D7;
+   --color-sauber: #01c00e;
+   --color-williams: #1868DB;
+   --color-alpine-dark: #004e70;
+   --color-aston_martin-dark: #0f4331;
+   --color-audi-dark: #751500;
+   --color-cadillac-dark: #58585b;
+   --color-ferrari-dark: #5C0012;
+   --color-haas-dark: #667175;
+   --color-mclaren-dark: #804000;
+   --color-mercedes-dark: #067e6a;
+   --color-rb-dark: #0038c2;
+   --color-red_bull-dark: #142948;
+   --color-williams-dark: #082145;
 }
 
 * {
@@ -26,11 +37,14 @@
    padding: 0;
 }
 
-html,body {
+html,
+body {
    height: 100%;
 }
 
-h1,h2,h3 {
+h1,
+h2,
+h3 {
    width: 100%;
    color: var(--main-red);
    text-align: center;

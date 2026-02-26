@@ -6,7 +6,6 @@ const DriverStandingContext = createContext();
 export function DriverStandingProvider({children}){
    const {year} = useYearContext();
    const [arrDriverList, setDriverList] = useState([]);
-   //const [arrCurDriverList, setCurDriverList] = useState([]);
    const [bLoading, setLoading] = useState(true);
       
    useEffect(() => {

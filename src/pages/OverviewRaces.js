@@ -4,11 +4,13 @@ import Card from '../components/components/Card';
 import oRaces from '../assets/data/races.json';
 import ButtonBackToTop from "../components/components/ButtonBackToTop";
 import { useRaceList } from "../context/RaceContext";
+import { useYearContext } from "../context/YearContext";
 //import ButtonJumpTo from "../components/components/ButtonJumpTo";
 
 function OverviewRaces() {
    const { t } = useTranslation();
    const cardRefs = useRef([]);
+   const {year} = useYearContext();
    const {arrRaces, bLoading} = useRaceList();
 
    const scrollToNextRace = () => {
@@ -23,8 +25,8 @@ function OverviewRaces() {
 
    return (
       <div className='overview-container'>
-         <h1>{t('race_schedule')}</h1>
-         <div className="card-list-col-auto">
+         <h1>{t('race_schedule')} {year}</h1>
+         <div className="card-list-col-auto-large">
             {arrRaces.map((data) => {
                if (data.round !== "0") return <Card type="race" data={data} cardClass={3} key={data.round} />
             })}

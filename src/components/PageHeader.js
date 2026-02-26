@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import NavLink from './components/NavLink';
-
-const LOGO_URL = "https://media.formula1.com/common/logos/f1_logo_red.svg";
+import logo from '../assets/images/logo.png';
 
 function PageHeader() {
    const { t } = useTranslation();
@@ -13,7 +12,7 @@ function PageHeader() {
    return (
       <nav className="nav-bar">
          <section className="nav-container">
-            <Link to='/' className="nav-logo"><img src={LOGO_URL} alt="" /></Link>
+            <Link to='/' className="nav-logo"><img src={logo} alt="" /></Link>
             <ul className="nav-menu">
                {arrLinks.map((oCurrent, index) => <NavLink oLink={oCurrent} key={index} />)}
             </ul>

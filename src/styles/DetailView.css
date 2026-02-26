@@ -1,0 +1,188 @@
+.detail-container {
+    /* variables set in DetailView.js*/
+    --color-detail-light: #fff;
+    --color-detail-dark: #333;
+}
+
+.detail-header,
+.detail-footer {
+    height: 105px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    border: none;
+}
+
+.detail-header {
+    background: linear-gradient(155deg, var(--color-detail-light) 0 45%, var(--color-detail-dark) 45% 55%, var(--color-detail-light) 55% 100%);
+}
+
+.detail-footer {
+    background: linear-gradient(25deg, var(--color-detail-light) 0 45%, var(--color-detail-dark) 45% 55%, var(--color-detail-light) 55% 100%);
+}
+
+.detail-header button {
+    display: inline-flex;
+    align-items: center;
+    font-size: 23px;
+    color: var(--color-detail-dark);
+    background: var(--color-detail-light);
+    border: 5px solid var(--color-detail-dark);
+    border-radius: 10px;
+    padding: 2px 15px;
+    transition: .3s ease-in-out;
+}
+
+.detail-header i {
+    color: var(--color-detail-dark);
+    font-size: 22px;
+    cursor: pointer;
+    border: 3px solid var(--color-detail-dark);
+    border-radius: 10px;
+    padding: 3px 15px;
+    transition: .3s ease-in-out;
+}
+
+.detail-header i:hover {
+    background: var(--color-detail-dark);
+    color: var(--color-detail-light);
+}
+
+.detail-area {
+    max-height: 600px;
+    display: flex;
+    background: var(--color-detail-light);
+    gap: 1rem;
+}
+
+.detail-left {
+    flex: 1;
+    background: #fff;
+    margin-left: 15px;
+    padding-top: 5px;
+    border: 3px solid var(--color-detail-dark);
+    border-radius: 10px;
+}
+
+.detail-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-left .detail-title {
+    width: 100%;
+    color: var(--color-detail-dark);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.detail-left .detail-row {
+    height: 65px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--color-detail-light);
+}
+
+.detail-left .detail-row div {
+    font-size: 20px;
+}
+
+.detail-row .detail-row-title {
+    color: var(--color-detail-dark);
+    font-weight: 700;
+}
+
+.detail-right img {
+    height: 100%;
+    max-height: 400px;
+    width: 100%;
+    object-fit: none;
+    object-position: top;
+    z-index: 2;
+}
+
+.detail-right .img-bg-text {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Lucida Console', monospace;
+    font-weight: bold;
+    font-size: 30rem;
+    z-index: 1;
+    padding: 0;
+}
+
+@media screen and (max-width: 1050px) {
+    .detail-area {
+        max-height: 430px;
+    }
+
+    .detail-left .detail-title {
+        font-size: 2rem;
+    }
+
+    .detail-left .detail-row {
+        height: 55px;
+    }
+
+    .detail-right .img-bg-text {
+        font-size: 20rem;
+    }
+}
+
+@media screen and (max-width: 755px) {
+    .detail-left .detail-title {
+        font-size: 1.8rem;
+    }
+
+    .detail-right .img-bg-text {
+        font-size: 18rem;
+    }
+
+    .detail-right img {
+        max-height: 350px;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .detail-header,
+    .detail-footer {
+        height: 75px;
+    }
+
+    .detail-area {
+        max-height: 600px;
+    }
+
+    .detail-left {
+        flex: 2;
+    }
+
+    .detail-right {
+        flex: 1;
+    }
+
+    .detail-left .detail-title {
+        font-size: 1.9rem;
+    }
+
+    .detail-left .detail-row {
+        height: 55px;
+    }
+
+    .detail-left .detail-row div {
+        font-size: 16px;
+    }
+
+    .detail-right .img-bg-text {
+        display: none;
+    }
+}
