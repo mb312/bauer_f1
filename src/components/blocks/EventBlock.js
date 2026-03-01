@@ -1,4 +1,3 @@
-
 const EventBlock = (props) => {
    const session = props.session;
    

@@ -36,3 +36,36 @@ export const teamDefaultData = {
     red_bull: {constructorId: "red_bull",name: "Red Bull"},
     williams: {constructorId: "williams",name: "Williams"},
 }
+
+export const broadcastChannel = {
+    1: ["ServusTV","Sky"],
+    2: ["ORF","Sky"],
+    3: ["ServusTV","Sky"],
+    4: ["ORF","Sky"],
+    5: ["ServusTV","Sky"],
+    6: ["ORF","Sky"],
+    7: ["ServusTV","Sky"],
+    8: ["ORF","Sky"],
+    9: ["ORF","Sky"],
+    10: ["ServusTV","Sky"],
+    11: ["ORF","Sky"],
+    12: ["ServusTV","Sky"],
+    13: ["ORF","Sky"],
+    14: ["ServusTV","Sky"],
+    15: ["ServusTV","Sky"],
+    16: ["ORF","Sky"],
+    17: ["ServusTV","Sky"],
+    18: ["ORF","Sky"],
+    19: ["ServusTV","Sky"],
+    20: ["ORF","Sky"],
+    21: ["ServusTV","Sky"],
+    22: ["ORF","Sky"],
+    23: ["ServusTV","Sky"],
+    24: ["ORF","Sky"],
+}
+
+export const broadcastChannelLogo = {
+    "ServusTV": "https://upload.wikimedia.org/wikipedia/de/thumb/b/be/ServusTV.svg/960px-ServusTV.svg.png?_=20091209204840",
+    "ORF": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/ORF_logo.svg/40px-ORF_logo.svg.png",
+    "Sky": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/Sky_Sports_logo_2020.svg/960px-Sky_Sports_logo_2020.svg.png?_=20231118121315"
+}

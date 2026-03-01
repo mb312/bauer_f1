@@ -54,6 +54,18 @@
    gap: 15px;
 }
 
+.event-block-logos {
+   padding: 18px 11px;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.event-block-logos img {
+   height: 25px;
+}
+
 .event-date {
    background: rgb(231, 231, 231);
    border-radius: 10px;
@@ -224,7 +236,8 @@
    object-fit: cover;
    z-index: 2;
 }
-.card-img-container .raceImg{
+
+.card-img-container .raceImg {
    object-position: center;
    object-fit: contain;
 }
@@ -295,6 +308,13 @@
 
    .event-icon {
       font-size: 1.6rem;
+   }
+   .event-block-logos{
+      padding: 7px 5px;
+   }
+
+   .event-block-logos img {
+      height: 20px;
    }
 
    .next-spliter {

@@ -1,5 +1,6 @@
 import Countdown from "./Countdown";
 import EventBlock from "./EventBlock";
+import BroadCastBlock from "./BroadCastBlock";
 import { getRaceSessions } from "../../utilities/RaceUtils";
 import { useTranslation } from "react-i18next";
 
@@ -21,6 +22,7 @@ function NextRaceSection({ oNextRace, dNextRaceDate }) {
             {arrNextRace.map((session, index) => (
                <EventBlock session={session} key={index} />
             ))}
+            <BroadCastBlock round={oNextRace.round} />
          </div>
       </section>
    );
