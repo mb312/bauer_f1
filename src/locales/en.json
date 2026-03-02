@@ -29,5 +29,7 @@
    "email_success": "Your message was sent successfully.",
    "driver_standing": "Driver Standing",
    "team_standing": "Team Standing",
-   "race_schedule": "Race Schedule"
+   "race_schedule": "Race Schedule",
+   "de": "German",
+   "en": "English"
 }

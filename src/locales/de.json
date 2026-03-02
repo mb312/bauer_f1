@@ -29,5 +29,7 @@
    "email_success": "Deine Nachricht wurde erfolgreich versendet.'",
    "driver_standing": "Fahrer WM-Stand",
    "team_standing": "Konstrukteur WM-Stand",
-   "race_schedule": "Rennkalender"
+   "race_schedule": "Rennkalender",
+   "de": "Deutsch",
+   "en": "Englisch"
 }
