@@ -23,7 +23,7 @@ export function getDateFormation(sDate, bLong) {
    if (sDate === "") return "---"
 
    const dDate = new Date(sDate);
-   let sReturn = dDate.getDate() + ". " + dDate.toLocaleString('default', { month: 'long' }) + " " + dDate.getFullYear();
+   let sReturn = dDate.getDate() + ". " + dDate.toLocaleString('default', { month: 'short' }) + " " + dDate.getFullYear();
    if (bLong) sReturn += " " + dDate.getHours() + ":" + setZeroInfrontOfNumber(dDate.getMinutes());
 
    return sReturn;
