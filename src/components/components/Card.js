@@ -40,7 +40,7 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
 
    const cardStyle = useMemo(() => {
       if (type === "driver") {
-         const oConstructor = data?.Constructors?.at(-1) ?? driverAssignedToTeam[data.driverId]; 
+         const oConstructor = data?.Constructors?.at(-1) ?? driverAssignedToTeam[data.driverId];
          return { background: `var(--color-${oConstructor.constructorId})` };
       } else if (type === "team") {
          const oConstructor = data?.Constructor || data;
@@ -50,13 +50,11 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
    }, [type, data]);
 
    return (
-      <div
-         className={className}
+      <div className={className}
          style={cardStyle}
          onClick={handleClick}
          role="button"
-         aria-label={`${type} card: ${type === 'race' ? data?.raceName : type === 'driver' ? data.Driver?.familyName : data?.Constructor?.name}`}
-      >
+         aria-label={`${type} card: ${type === 'race' ? data?.raceName : type === 'driver' ? data.Driver?.familyName : data?.Constructor?.name}`}>
          <div className="card-header-container">{cardContent?.header}</div>
          <div className="card-text-container">
             {cardContent?.textBlock}
@@ -66,6 +64,13 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
             <div className="img-bg-text">{cardContent?.imgBgText}</div>
             <img src={cardContent.imgSrc} alt={cardContent?.imgAlt} className={imgClass} loading="lazy" />
          </div>
+         {(type == "team") && (
+            <div className="card-details-container">
+               {cardContent.teamDrivers.map((driver) => {
+                  return <div>{driver.driver}</div>
+               })}
+            </div>
+         )}
       </div>
    );
 };

@@ -76,7 +76,7 @@
 }
 
 .event-day {
-   font-size: 0.7rem;
+   font-size: 0.8rem;
    color: var(--main-black);
    width: 100%;
    text-align: center;
@@ -96,9 +96,9 @@
 }
 
 .event-title {
-   font-size: 1.1rem;
+   font-size: 1rem;
    color: var(--main-black);
-   word-break: break-word;
+   word-break: normal;
 }
 
 .event-icon {
@@ -248,11 +248,20 @@
    padding: 10px;
 }
 
+.card-details-container{
+   background: var(--main-black);
+   color: var(--main-white);
+   /*border-top: 1px solid var(--main-white);*/
+   display: flex;
+   justify-content: space-between;
+   padding: 5px 15px;
+}
+
 /* check order from big screen to small */
 @media screen and (max-width: 1155px) {
    .next-container {
       display: block;
-      padding: 0;
+      padding: 1rem 0 0;
    }
 
    .info-container {
@@ -303,7 +312,7 @@
    }
 
    .event-title {
-      font-size: .8rem;
+      font-size: .75rem;
    }
 
    .event-icon {

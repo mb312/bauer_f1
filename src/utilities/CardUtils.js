@@ -51,5 +51,6 @@ export const getTeamCardContent = (data, position, points) => {
       imgSrc: teamCarImages[oConstructor.constructorId],
       imgAlt: `${oConstructor.name} car`,
       imgBgText: "",
+      teamDrivers: Object.values(driverAssignedToTeam).filter(driver => driver.constructorId == oConstructor.constructorId),
    };
 }
