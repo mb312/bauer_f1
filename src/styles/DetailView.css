@@ -14,11 +14,13 @@
 }
 
 .detail-header {
-    background: linear-gradient(155deg, var(--color-detail-light) 0 45%, var(--color-detail-dark) 45% 55%, var(--color-detail-light) 55% 100%);
+    /*background: linear-gradient(155deg, var(--color-detail-light) 0 45%, var(--color-detail-dark) 45% 55%, var(--color-detail-light) 55% 100%);*/
+    background: linear-gradient(155deg, #fff 0 45%, var(--color-detail-light) 45% 55%, #fff 55% 100%);
 }
 
 .detail-footer {
-    background: linear-gradient(25deg, var(--color-detail-light) 0 45%, var(--color-detail-dark) 45% 55%, var(--color-detail-light) 55% 100%);
+    /*background: linear-gradient(25deg, var(--color-detail-light) 0 45%, var(--color-detail-dark) 45% 55%, var(--color-detail-light) 55% 100%);*/
+    background: linear-gradient(25deg, #fff 0 45%, var(--color-detail-light) 45% 55%, #fff 55% 100%);
 }
 
 .detail-header button {
@@ -51,7 +53,7 @@
 .detail-area {
     max-height: 600px;
     display: flex;
-    background: var(--color-detail-light);
+    /*background: var(--color-detail-light);*/
     gap: 1rem;
 }
 
@@ -60,7 +62,7 @@
     background: #fff;
     margin-left: 15px;
     padding-top: 5px;
-    border: 3px solid var(--color-detail-dark);
+    border: 3px solid var(--color-detail-light);
     border-radius: 10px;
 }
 
@@ -111,7 +113,7 @@
 
 .detail-right .img-bg-text {
     position: absolute;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-detail-light);
     font-family: 'Lucida Console', monospace;
     font-weight: bold;
     font-size: 30rem;

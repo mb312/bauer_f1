@@ -3,8 +3,7 @@ import { useLocation } from 'react-router-dom';
 import ButtonBack from '../components/components/ButtonBack';
 import '../styles/DetailView.css';
 import { driverImages } from '../assets/imageMappings';
-import { getCurrentAge, getDateFormation } from '../utilities/UsefullUtils';
-import { getTeamLogoURL } from '../utilities/ConstructorUtils';
+import { getDateFormation } from '../utilities/UsefullUtils';
 import { getDriverNumber, getLastYearsPosition } from '../utilities/DriverUtils';
 
 function DetailView() {
@@ -13,7 +12,7 @@ function DetailView() {
     const CURRENT_YEAR = new Date().getFullYear();
     const LAST_YEAR = CURRENT_YEAR - 1;
     const [lastYearStanding, setLastYearStanding] = useState(null);
-    const driverImage = driverImages[driver?.familyName.toLowerCase()]
+    const driverImage = driverImages[driver?.familyName.toLowerCase()]    
     const driverName = driver?.givenName + " " + driver?.familyName;
     const nDriverNr = ("0" + getDriverNumber(driver)).slice(-2);
 
@@ -41,8 +40,6 @@ function DetailView() {
 
         fetchLastYearStanding();
     }, [driver?.driverId]);
-
-    console.log(lastYearStanding)
 
     return (
         <div className='detail-container' ref={containerRef}>
