@@ -54,7 +54,7 @@ function DetailView() {
                         <div>{constructor?.name}</div>
                     </div>
                     <div className='detail-row'>
-                        <div className='detail-row-title'><i class="fa-solid fa-cake-candles"></i></div>
+                        <div className='detail-row-title'><i className="fa-solid fa-cake-candles"></i></div>
                         <div>{getDateFormation(driver.dateOfBirth)}</div>
                     </div>
                     <div className='detail-row'>

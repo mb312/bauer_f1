@@ -1,7 +1,22 @@
-.main-content {
+.main-content, .page-content {
    min-height: 85vh;
    width: 100%;
    padding-bottom: 1rem;
+}
+
+.page-content{
+   padding: 1rem 2rem 0;
+   display: flex;
+}
+
+.page-content i{
+    color: var(--main-black);
+    font-size: 22px;
+    cursor: pointer;
+    border: 3px solid var(--main-black);
+    border-radius: 10px;
+    padding: 3px 15px;
+    transition: .3s ease-in-out;
 }
 
 .next-container {

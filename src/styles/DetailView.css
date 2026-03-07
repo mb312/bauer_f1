@@ -14,25 +14,11 @@
 }
 
 .detail-header {
-    /*background: linear-gradient(155deg, var(--color-detail-light) 0 45%, var(--color-detail-dark) 45% 55%, var(--color-detail-light) 55% 100%);*/
     background: linear-gradient(155deg, #fff 0 45%, var(--color-detail-light) 45% 55%, #fff 55% 100%);
 }
 
 .detail-footer {
-    /*background: linear-gradient(25deg, var(--color-detail-light) 0 45%, var(--color-detail-dark) 45% 55%, var(--color-detail-light) 55% 100%);*/
     background: linear-gradient(25deg, #fff 0 45%, var(--color-detail-light) 45% 55%, #fff 55% 100%);
-}
-
-.detail-header button {
-    display: inline-flex;
-    align-items: center;
-    font-size: 23px;
-    color: var(--color-detail-dark);
-    background: var(--color-detail-light);
-    border: 5px solid var(--color-detail-dark);
-    border-radius: 10px;
-    padding: 2px 15px;
-    transition: .3s ease-in-out;
 }
 
 .detail-header i {
@@ -155,6 +141,7 @@
 }
 
 @media screen and (max-width: 650px) {
+
     .detail-header,
     .detail-footer {
         height: 75px;

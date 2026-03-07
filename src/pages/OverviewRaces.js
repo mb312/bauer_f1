@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import Card from '../components/components/Card';
-import oRaces from '../assets/data/races.json';
+import LoadingSpinner from "../components/components/LoadingSpinner";
 import ButtonBackToTop from "../components/components/ButtonBackToTop";
 import { useRaceList } from "../context/RaceContext";
 import { useYearContext } from "../context/YearContext";
@@ -14,7 +14,7 @@ function OverviewRaces() {
    const {arrRaces, bLoading} = useRaceList();
 
    const scrollToNextRace = () => {
-      const currentRaceIndex = arrRaces.findIndex((data) => new Date(data.date) >= new Date());
+      const currentRaceIndex = arrRaces.findIndex((data) => new Date(data?.date) >= new Date());
       if (currentRaceIndex !== -1 && cardRefs.current[currentRaceIndex]) {
          cardRefs.current[currentRaceIndex].scrollIntoView({
             behavior: 'smooth',
@@ -23,12 +23,17 @@ function OverviewRaces() {
       }
    };
 
+   if (bLoading) {
+      return <LoadingSpinner sMessage={t('loading') || 'Loading…'} />
+   }
+
    return (
       <div className='overview-container'>
          <h1>{t('race_schedule')} {year}</h1>
          <div className="card-list-col-auto-large">
-            {arrRaces.map((data) => {
-               if (data.round !== "0") return <Card type="race" data={data} cardClass={3} key={data.round} />
+            {Array.isArray(arrRaces) && arrRaces.map((data) => {
+               if (data?.round !== "0") return <Card type="race" data={data} cardClass={3} key={data?.round} />
+               return null;
             })}
             <ButtonBackToTop />
          </div>

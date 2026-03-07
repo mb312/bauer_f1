@@ -14,9 +14,9 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
    const handleClick = () => {
       if (type === "race") {
          return;
-         /*const oRace = { FirstPractice: data.FirstPractice, date: data.date };
+         const oRace = { FirstPractice: data.FirstPractice, date: data.date };
          const oDate = getLocalStringDate(data.FirstPractice);
-         navigate(`/circuit/${oDate}`, { state: { eventNo: 0, oWeekend: oRace } });*/
+         navigate(`/circuit/${oDate}`, { state: { nRound: data.round, oWeekend: oRace, nSelctedEvent:0 } });
       } else if (type === "driver") {
          const oDriver = data?.Driver || data;
          const oConstructor = data?.Constructors?.at(-1) ?? driverAssignedToTeam[data.driverId];
@@ -40,13 +40,15 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
 
    const cardStyle = useMemo(() => {
       if (type === "driver") {
-         const oConstructor = data?.Constructors?.at(-1) ?? driverAssignedToTeam[data.driverId];
-         return { background: `var(--color-${oConstructor.constructorId})` };
+         if (data){
+            const oConstructor = data?.Constructors?.at(-1) ?? driverAssignedToTeam[data.driverId];            
+            return { background: `var(--color-${oConstructor.constructorId})` };
+         }
       } else if (type === "team") {
          const oConstructor = data?.Constructor || data;
          return { background: `var(--color-${oConstructor.constructorId})` };
       }
-      return {};
+      return {background: 'transparent'};
    }, [type, data]);
 
    return (
@@ -54,7 +56,8 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
          style={cardStyle}
          onClick={handleClick}
          role="button"
-         aria-label={`${type} card: ${type === 'race' ? data?.raceName : type === 'driver' ? data.Driver?.familyName : data?.Constructor?.name}`}>
+         aria-label={`${type} card: ${type === 'race' ? data?.raceName : type === 'driver' ? data.Driver?.familyName : data?.Constructor?.name}`}
+         key={`${type}-${data?.raceName || data.Driver?.familyName || data?.Constructor?.name}`}>
          <div className="card-header-container">{cardContent?.header}</div>
          <div className="card-text-container">
             {cardContent?.textBlock}

@@ -1,3 +1,4 @@
+import { driverAssignedToTeam } from "../assets/defaultMapping";
 import { useDriverStanding } from "../context/DriverStandingContext";
 
 const URL_TEAM_LOGOS = "https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/";

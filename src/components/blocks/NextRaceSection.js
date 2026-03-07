@@ -8,7 +8,7 @@ function NextRaceSection({ oNextRace, dNextRaceDate }) {
    const { t } = useTranslation();
    const oGrandPrix = { date: oNextRace.date, time: oNextRace.time };
    const arrNextRace = getRaceSessions(oNextRace, oGrandPrix);
-   
+      
    return (
       <section className="next-container">
          <div className="next-info">
@@ -19,7 +19,7 @@ function NextRaceSection({ oNextRace, dNextRaceDate }) {
             </div>
          </div>
          <div className="info-container">
-            {arrNextRace.map((session, index) => (
+            {arrNextRace.map((session, index) => (               
                <EventBlock session={session} key={index} />
             ))}
             <BroadCastBlock round={oNextRace.round} />

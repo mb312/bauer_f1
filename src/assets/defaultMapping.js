@@ -12,7 +12,7 @@ export const driverAssignedToTeam = {
     hulkenberg: {constructorId: "audi",name: "Audi", driver: "Nico Hülkenberg"},
     lawson: {constructorId: "rb",name: "RB F1 Team", driver: "Liam Lawson"},
     leclerc:{constructorId: "ferrari",name: "Ferrari", driver: "Charles Leclerc"},
-    lindblad: {constructorId: "rb",name: "RB F1 Team", driver: "Arvid Lindblad"},
+    arvid_lindblad: {constructorId: "rb",name: "RB F1 Team", driver: "Arvid Lindblad"},    
     norris: {constructorId: "mclaren",name: "McLaren", driver: "Lando Norris"},
     ocon: {constructorId: "haas",name: "Haas F1 Team", driver: "Esteban Ocon"},
     piastri: {constructorId: "mclaren",name: "McLaren", driver: "Oscar Piastri"},

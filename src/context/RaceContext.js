@@ -12,12 +12,14 @@ export function RaceProvider({children}) {
             try {
                 const nYear = new Date().getFullYear();
                 const URL_RACES = `https://api.jolpi.ca/ergast/f1/${nYear}/races/`;
-                let res = await fetch(URL_RACES);
+                let res = await fetch(URL_RACES);                
                 let data = await res.json();
                 setRaceList(data.MRData.RaceTable.Races);
-                setLoading(false);
             } catch (e) {
-                console.error(e)
+                console.error(e);
+                setRaceList([]);
+            } finally {
+                setLoading(false);
             }
         }
         loadData();

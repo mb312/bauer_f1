@@ -29,12 +29,12 @@ export function getDateFormation(sDate, bLong) {
    return sReturn;
 }
 
-export function getCurrentAge(sDate){
+export function getCurrentAge(sDate) {
    const dToday = new Date();
    const dBirthDay = new Date(sDate);
-   let nAge = dToday.getFullYear()-dBirthDay.getFullYear();
-   const nMonthDiff = dToday.getMonth()-dBirthDay.getMonth();
-   if (nMonthDiff<0 || (nMonthDiff==0 && dToday.getDate()<dBirthDay.getDate())) nAge--;
+   let nAge = dToday.getFullYear() - dBirthDay.getFullYear();
+   const nMonthDiff = dToday.getMonth() - dBirthDay.getMonth();
+   if (nMonthDiff < 0 || (nMonthDiff == 0 && dToday.getDate() < dBirthDay.getDate())) nAge--;
 
    return nAge;
 }
@@ -146,20 +146,27 @@ export function getSessionFilter(oWeekend) {
    return "date_start>=" + sStart + "&date_end<=" + sEnd;
 }
 
-export function getCardClassArray(){
-   return ["card","card-large","card-wide","card border"];
+export function getCardClassArray() {
+   return ["card", "card-large", "card-wide", "card border"];
 }
 /* pass object with date and return formated date for display */
 export function getEventDate(oEvent) {
-   const dEventDate = new Date(oEvent.date);
-   const dToday = new Date();
+   if (!oEvent || !oEvent.date) return "";
 
+   const dEventDate = new Date(oEvent.date);
+   if (isNaN(dEventDate)) return "";
+
+   const dToday = new Date();
    if (dEventDate.toDateString() === dToday.toDateString()) return "Today"
    return dEventDate.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' });
 }
 
 /* pass object with time and return formated time for display */
 export function getEventTime(oEvent) {
-   const arrTime = oEvent.time.split(':');
-   return `${arrTime[0]}:${arrTime[1]}`;
+   if (!oEvent || !oEvent.date || !oEvent.time) return "";
+
+   const dDate = new Date(`${oEvent.date}T${oEvent.time}`);
+   if (isNaN(dDate)) return "";
+
+   return dDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
