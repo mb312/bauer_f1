@@ -75,7 +75,7 @@ function DetailCircuit() {
          <div className="dropdown">
             <select value={nSelectedSessionKey} onChange={(e) => setSelectedSessionKey(parseInt(e.target.value))}>
                {arrWeekendSessions.map((oSession) => (
-                  <option key={oSession.session_key} value={oSession.session_key}>{oSession.session_name} - {new Date(oSession.date_start).toLocaleString('de-DE', { month: 'short', day: 'numeric' })} {new Date(oSession.date_start).toLocaleString('de-DE', { hour: '2-digit', minute: '2-digit' })} </option>
+                  <option key={oSession.session_key} value={oSession.session_key}>{t(oSession.session_name.toLowerCase().replace(" ", "_"))} - {new Date(oSession.date_start).toLocaleString('de-DE', { month: 'short', day: 'numeric' })} {new Date(oSession.date_start).toLocaleString('de-DE', { hour: '2-digit', minute: '2-digit' })} </option>
                ))}
             </select>
          </div>
