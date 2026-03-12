@@ -6,20 +6,22 @@ import { useRaceList } from "../../context/RaceContext";
 
 function NextRaceSection() {
    const { t } = useTranslation();
-   //const oGrandPrix = { date: oNextRace.date, time: oNextRace.time };
    const { arrSessions, arrRaces } = useRaceList();
-   const oNextRace = arrRaces.find((race) => {return new Date(race.date_end).getTime() >= new Date().getTime()});
-   
+   var nIndex = 0;
+   const oNextRace = arrRaces.find((race, index) => {
+      nIndex = index + 1;
+      return new Date(race.date_end).getTime() >= new Date().getTime()
+   });
+
    if (!oNextRace) return <div></div>;
-   const arrNextRace = (arrSessions.length >0) ? arrSessions.filter((session) => session.meeting_key === oNextRace?.meeting_key) : [];
+   const arrNextRace = (arrSessions.length > 0) ? arrSessions.filter((session) => session.meeting_key === oNextRace?.meeting_key) : [];
    if (arrNextRace && arrNextRace.length === 0) return <div></div>;
 
-//<BroadCastBlock round={oNextRace.round} />
    return (
       <section className="next-container">
          <div className="next-info">
             <h1>{t("next_race")}</h1>
-            <h1>{oNextRace?.circuit_short_name}</h1>
+            <h1>{oNextRace?.country_name} {oNextRace?.circuit_short_name} {t("race")}</h1>
             <div className="timer-container">
                <Countdown dToDate={new Date(oNextRace?.date_start)} />
             </div>
@@ -28,7 +30,7 @@ function NextRaceSection() {
             {arrNextRace.map((session, index) => (
                <EventBlock session={session} key={index} />
             ))}
-            
+            <BroadCastBlock round={nIndex} />
          </div>
       </section>
    );

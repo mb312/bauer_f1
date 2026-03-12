@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { formatLapTime, getCircuitDetailDate, getCircuitDetailName } from "../utilities/UsefullUtils";
@@ -69,7 +69,7 @@ function DetailCircuit() {
       <div className="container wide">
          <div className='detail-header'>
             <ButtonBack />
-            <h1>{getCircuitDetailName(oRaceData)}</h1>
+            <h1>{getCircuitDetailName(oRaceData)}<br/> {t("race")}</h1>
          </div>
 
          <div className="dropdown">
