@@ -19,9 +19,9 @@ export const DRIVER_COLOR_KEY = [{ apiKey: 'Aston Martin',colorKey: 'aston_marti
                                  { apiKey: 'Mercedes',colorKey: 'mercedes'},
                                  { apiKey: 'Haas F1 Team',colorKey: 'haas'},
                                  { apiKey: 'McLaren', colorKey:'mclaren'},
-                                 { apiKey: "Kick Sauber", colorKey: "sauber" }
-]
-
+                                 { apiKey: "Kick Sauber", colorKey: "sauber" },
+                              ]
+                              
 export function getTeamLogoConstructorId(nConstructorId,arrMapping) {
   const oFound = arrMapping.find(element => element.apiKey === nConstructorId);
   return oFound ? oFound.f1key : nConstructorId;
@@ -47,20 +47,29 @@ export function getDriversForTeam(nConstructorId){
    return [];
 }
 
-export function getConstrocturIdWithDriverNo(oDriver){
+export function getConstrocturIdWithDriverNo(oDriver,nNumber){
    const {arrDriverList} = useDriverStanding();
-   let sDriverNo = oDriver.driver_number;
-   if (sDriverNo == 1) sDriverNo=33;
+   
+   let sDriverNo = (nNumber && nNumber>0) ? nNumber : oDriver.driver_number;
+   if (sDriverNo == 1) sDriverNo=4;
    let sTeamId = "";
 
    arrDriverList.map((driver) => {
-      if (driver.Driver.permanentNumber == sDriverNo) return sTeamId = driver.Constructors[(driver.Constructors.length-1)].constructorId;
+      if (driver.permanentNumber == sDriverNo){
+         if (driver.Constructors){
+            sTeamId = driver.Constructors[(driver.Constructors.length-1)].constructorId;
+         }else{
+            sTeamId = driverAssignedToTeam[driver.driverId] ? sTeamId = driverAssignedToTeam[driver.driverId].constructorId : sTeamId = "";
+         }
+      }
    });
+
+   //console.log(sTeamId)
    if (sTeamId !== "") return sTeamId;
    
    DRIVER_COLOR_KEY.map((oFind) => {
       if (oFind.apiKey === oDriver.team_name) return sTeamId = oFind.colorKey;
-   })
+   })   
 
    return sTeamId;
 }

@@ -22,7 +22,7 @@ export default function AppRoutes() {
         <Route path='/contactMe' element={<ContactMe />} />
         <Route path='/driver/:driverId' element={<DetailView />} />
         <Route path='/team/:constructorId' element={<DetailTeam />} />
-        <Route path='/circuit/:date' element={<DetailCircuit />} />
+        <Route path='/circuit/:circuitShortName' element={<DetailCircuit />} />
         <Route path='/legalNotice' element={<LegalNotice />} />
         <Route path='/privacyPolicy' element={<PrivacyPolicy />} />
         <Route path="*" element={<Navigate to="/" replace />}/>

@@ -194,7 +194,15 @@ footer{
    background: var(--color-alpine);
    color: var(--main-white);
 }
-
+.cadillac{
+   background: var(--color-cadillac);
+   color: var(--main-white);
+}
+.audi{
+   background: var(--color-audi);
+   color: var(--main-white);
+}
+   
 .btn-back-to-top{
    position: fixed;
    width: 75px;

@@ -13,10 +13,7 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
 
    const handleClick = () => {
       if (type === "race") {
-         return;
-         const oRace = { FirstPractice: data.FirstPractice, date: data.date };
-         const oDate = getLocalStringDate(data.FirstPractice);
-         navigate(`/circuit/${oDate}`, { state: { nRound: data.round, oWeekend: oRace, nSelctedEvent:0 } });
+         navigate(`/circuit/${data.circuit_short_name}`, { state: { nMeetingKey: data.meeting_key, nDefaultSessionKey: data.session_key, oRaceData: data } });
       } else if (type === "driver") {
          const oDriver = data?.Driver || data;
          const oConstructor = data?.Constructors?.at(-1) ?? driverAssignedToTeam[data.driverId];
@@ -31,7 +28,7 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
 
    let cardContent;
    if (type === "race") {
-      cardContent = getRaceCardContent(data);
+      cardContent = getRaceCardContent(data, position);
    } else if (type === "driver") {
       cardContent = getDriverCardContent(data, position, points);
    } else if (type === "team") {

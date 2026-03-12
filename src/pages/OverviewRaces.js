@@ -12,7 +12,6 @@ function OverviewRaces() {
    const cardRefs = useRef([]);
    const {year} = useYearContext();
    const {arrRaces, bLoading} = useRaceList();
-
    const scrollToNextRace = () => {
       const currentRaceIndex = arrRaces.findIndex((data) => new Date(data?.date) >= new Date());
       if (currentRaceIndex !== -1 && cardRefs.current[currentRaceIndex]) {
@@ -31,11 +30,10 @@ function OverviewRaces() {
       <div className='overview-container'>
          <h1>{t('race_schedule')} {year}</h1>
          <div className="card-list-col-auto-large">
-            {Array.isArray(arrRaces) && arrRaces.map((data) => {
-               if (data?.round !== "0") return <Card type="race" data={data} cardClass={3} key={data?.round} />
-               return null;
+            {Array.isArray(arrRaces) && arrRaces.map((data,index) => {
+               return <Card type="race" data={data} cardClass={3} key={index} position={index+1} />
             })}
-            <ButtonBackToTop />
+            
          </div>
       </div>
    )

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-function SessionButtons({ arrSessions, oSelectedSession, onSelect }) {
-   const [nActiveSessionKey, setActiveSessionKey] = useState(oSelectedSession.session_key);
+function SessionButtons({ arrSessions, nSessionKey, onSelect }) {
+   const [nActiveSessionKey, setActiveSessionKey] = useState(nSessionKey);
    const toggleButton = (session) => {
       (nActiveSessionKey === session.session_key) ? setActiveSessionKey(null) : setActiveSessionKey(session.session_key);
-      onSelect(session);
+      onSelect(session.session_key);
    };
 
    return (

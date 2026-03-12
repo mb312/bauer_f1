@@ -24,3 +24,4 @@ React Router (for page navigation)
 CSS / Tailwind / Styled Components (edit depending on what you used)
 Fetch API / Axios
 Data from the Ergast API via https://api.jolpi.ca/ergast/
+Data from the OpenF1 API via https://api.openf1.org/v1/
