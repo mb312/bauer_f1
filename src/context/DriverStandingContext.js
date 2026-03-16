@@ -10,7 +10,7 @@ export function DriverStandingProvider({children}){
       
    useEffect(() => {
       const loadData = async() =>{
-         //try{
+         try{
             const URL_DRIVERSTANDING = `https://api.jolpi.ca/ergast/f1/${year}/driverstandings/`;
             const URL_DRIVERLIST = `https://api.jolpi.ca/ergast/f1/${year}/drivers/`;
             let res = await fetch(URL_DRIVERSTANDING);            
@@ -23,9 +23,9 @@ export function DriverStandingProvider({children}){
             }
             setDriverList(oStanding);
             setLoading(false);
-         /*}catch(e){
+         }catch(e){
             console.error(e)
-         }*/
+         }
       }
       loadData();
    },[]);
