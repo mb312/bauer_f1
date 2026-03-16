@@ -86,7 +86,7 @@ bauer_f1/
 
 ## 🌐 Deployment
 This project is deployed via **Netlify** with automatic builds from the `main` branch.
-[![Netlify Status](https://api.netlify.com/api/v1/badges/placeholder/deploy-status)](https://bauerf1.netlify.app)
+🚀 **Deployed on Netlify** → [bauerf1.netlify.app](https://bauerf1.netlify.app)
 ---
 
 ## 📄 License
