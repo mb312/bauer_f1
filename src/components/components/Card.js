@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { getDriverCardContent, getRaceCardContent, getTeamCardContent } from "../../utilities/CardUtils";
-import { getCardClassArray, getLocalStringDate } from "../../utilities/UsefullUtils";
+import { getCardClassArray, getEventDate, getLocalStringDate } from "../../utilities/UsefullUtils";
 import { driverAssignedToTeam } from "../../assets/defaultMapping";
 
 const Card = ({ type, data, cardClass = 0, position, points }) => {
@@ -44,9 +44,26 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
       } else if (type === "team") {
          const oConstructor = data?.Constructor || data;
          return { background: `var(--color-${oConstructor.constructorId})` };
+      }else if (type === "race") {
+         const eventDate = new Date(data.date_start);
+         const today = new Date();
+         return (eventDate < today) ? { background: 'var(--main-light-grey)' } : { background: 'transparent' };
       }
       return {background: 'transparent'};
    }, [type, data]);
+
+   const statusCardHeaderStyle = useMemo(() => {
+      if (type === "race") {         
+         const eventDate = new Date(data.date_start);
+         const today = new Date();
+         if (eventDate < today) {
+            return { background: 'var(--main-grey)' };
+         } else if (eventDate === today) {
+            return { background: 'var(--main-red)' };         
+         }
+      }
+      return {};
+   }, [type]);   
 
    return (
       <div className={className}
@@ -55,8 +72,8 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
          role="button"
          aria-label={`${type} card: ${type === 'race' ? data?.raceName : type === 'driver' ? data.Driver?.familyName : data?.Constructor?.name}`}
          key={`${type}-${data?.raceName || data.Driver?.familyName || data?.Constructor?.name}`}>
-         <div className="card-header-container">{cardContent?.header}</div>
-         <div className="card-text-container">
+         <div className="card-header-container" style={statusCardHeaderStyle}>{cardContent?.header}</div>
+         <div className="card-text-container" style={statusCardHeaderStyle}>
             {cardContent?.textBlock}
             {cardContent?.teamImgSrc && <img src={cardContent?.teamImgSrc} alt="team logo" loading="lazy" />}
          </div>
