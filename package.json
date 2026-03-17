@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@supabase/supabase-js": "^2.99.2",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -12,16 +13,16 @@
     "axios": "^1.9.0",
     "core-js-pure": "^3.43.0",
     "emailjs-com": "^3.2.0",
-    "i18next": "^25.2.1",
+    "i18next": "^22.5.1",
     "i18next-browser-languagedetector": "^8.2.0",
     "i18next-http-backend": "^3.0.2",
     "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-i18next": "^15.5.3",
+    "react-i18next": "^12.3.1",
     "react-router-dom": "^7.6.1",
     "react-scripts": "^5.0.1",
-    "typescript": "^5.0.4",
+    "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
