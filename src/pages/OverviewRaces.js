@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import Card from '../components/components/Card';
 import LoadingSpinner from "../components/components/LoadingSpinner";
@@ -33,7 +33,7 @@ function OverviewRaces() {
             {Array.isArray(arrRaces) && arrRaces.map((data,index) => {
                return <Card type="race" data={data} cardClass={3} key={index} position={index+1} />
             })}
-            
+            <ButtonBackToTop />
          </div>
       </div>
    )

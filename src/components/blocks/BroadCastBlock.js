@@ -1,4 +1,3 @@
-import React from 'react'
 import { broadcastChannel, broadcastChannelLogo } from '../../assets/defaultMapping'
 
 function BroadCastBlock({ round }) {

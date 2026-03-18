@@ -2,14 +2,14 @@ import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { getDriverCardContent, getRaceCardContent, getTeamCardContent } from "../../utilities/CardUtils";
-import { getCardClassArray, getEventDate, getLocalStringDate } from "../../utilities/UsefullUtils";
+import { getCardClassArray } from "../../utilities/UsefullUtils";
 import { driverAssignedToTeam } from "../../assets/defaultMapping";
+import { getRaceCardHeaderStyle, getRaceCardStyle } from "../../utilities/RaceUtils";
 
 const Card = ({ type, data, cardClass = 0, position, points }) => {
    const navigate = useNavigate();
    const arrCardClass = getCardClassArray();
    const className = arrCardClass[cardClass] || arrCardClass[0];
-   const imgClass = (type == "race") ? "raceImg" : "";
 
    const handleClick = () => {
       if (type === "race") {
@@ -37,33 +37,26 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
 
    const cardStyle = useMemo(() => {
       if (type === "driver") {
-         if (data){
-            const oConstructor = data?.Constructors?.at(-1) ?? driverAssignedToTeam[data.driverId];            
+         if (data) {
+            const oConstructor = data?.Constructors?.at(-1) ?? driverAssignedToTeam[data.driverId];
             return { background: `var(--color-${oConstructor.constructorId})` };
          }
       } else if (type === "team") {
          const oConstructor = data?.Constructor || data;
          return { background: `var(--color-${oConstructor.constructorId})` };
-      }else if (type === "race") {
-         const eventDate = new Date(data.date_start);
-         const today = new Date();
-         return (eventDate < today) ? { background: 'var(--main-light-grey)' } : { background: 'transparent' };
+      } else if (type === "race") {
+         return getRaceCardStyle(data);
       }
-      return {background: 'transparent'};
+      return { background: 'transparent' };
    }, [type, data]);
 
    const statusCardHeaderStyle = useMemo(() => {
-      if (type === "race") {         
-         const eventDate = new Date(data.date_start);
-         const today = new Date();
-         if (eventDate < today) {
-            return { background: 'var(--main-grey)' };
-         } else if (eventDate === today) {
-            return { background: 'var(--main-red)' };         
-         }
+      if (type === "race") {
+         return getRaceCardHeaderStyle(data);
       }
+      
       return {};
-   }, [type]);   
+   }, [type]);
 
    return (
       <div className={className}
@@ -77,9 +70,8 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
             {cardContent?.textBlock}
             {cardContent?.teamImgSrc && <img src={cardContent?.teamImgSrc} alt="team logo" loading="lazy" />}
          </div>
-         <div className="card-img-container">
-            <div className="img-bg-text">{cardContent?.imgBgText}</div>
-            <img src={cardContent.imgSrc} alt={cardContent?.imgAlt} className={imgClass} loading="lazy" />
+         <div className="card-main-container">            
+            {cardContent?.main}
          </div>
          {(type == "team") && (
             <div className="card-details-container">

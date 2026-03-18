@@ -27,7 +27,7 @@ export const driverNumberData = {
     1: { firstName: "Lando", lastName: "Norris", constructorId: "mclaren", name: "McLaren", driver: "Lando Norris" },
     23: { firstName: "Alexander", lastName: "Albon", constructorId: "williams", name: "Williams", driver: "Alexander Albon" },
     14: { firstName: "Fernando", lastName: "Alonso", constructorId: "aston_martin", name: "Aston Martin", driver: "Fernando Alonso" },
-    12: { firstName: "Kimi", lastName: "Antonelli", constructorId: "mercedes", name: "Mercedes", driver: "Andrea Kimi Antonelli" },
+    12: { firstName: "Kimi", lastName: "Antonelli", constructorId: "mercedes", name: "Mercedes", driver: "Kimi Antonelli" },
     87: { firstName: "Oliver", lastName: "Bearman", constructorId: "haas", name: "Haas F1 Team", driver: "Oliver Bearman" },
     5: { firstName: "Gabriel", lastName: "Bortoleto", constructorId: "audi", name: "Audi", driver: "Gabriel Bortoleto" },
     77: { firstName: "Valtteri", lastName: "Bottas", constructorId: "cadillac", name: "Cadillac F1 Team", driver: "Valtteri Bottas" },

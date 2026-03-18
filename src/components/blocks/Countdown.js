@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { setZeroInfrontOfNumber } from "../../utilities/UsefullUtils";
 
 const Countdown = ({ dToDate }) => {

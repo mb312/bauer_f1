@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import ButtonBack from '../components/components/ButtonBack';
 import '../styles/DetailView.css';
@@ -12,7 +12,7 @@ function DetailView() {
     const CURRENT_YEAR = new Date().getFullYear();
     const LAST_YEAR = CURRENT_YEAR - 1;
     const [lastYearStanding, setLastYearStanding] = useState(null);
-    const driverImage = driverImages[driver?.familyName.toLowerCase()]    
+    const driverImage = driverImages[driver?.familyName.toLowerCase()]
     const driverName = driver?.givenName + " " + driver?.familyName;
     const nDriverNr = ("0" + getDriverNumber(driver)).slice(-2);
 

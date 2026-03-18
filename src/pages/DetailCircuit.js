@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { formatLapTime, getCircuitDetailDate, getCircuitDetailName } from "../utilities/UsefullUtils";
+import { formatLapTime, getCircuitDetailName } from "../utilities/UsefullUtils";
 import '../styles/DetailSession.css';
 import ButtonBack from "../components/components/ButtonBack";
 import { useRaceList } from "../context/RaceContext";

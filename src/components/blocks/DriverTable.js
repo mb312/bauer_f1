@@ -1,9 +1,6 @@
-import { useTranslation } from "react-i18next";
 import Card from "../components/Card";
 
-function DriverTable({arrDriverList}) {
-   const { t } = useTranslation();
-   
+function DriverTable({arrDriverList}) {   
    return (
       <section className="driver-table">
          <div className="card-list-col-auto">            
