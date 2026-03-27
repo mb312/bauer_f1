@@ -1,6 +1,8 @@
+import { driverNumberData } from "../assets/defaultMapping";
 import { circuitImages } from "../assets/imageMappings";
-import RacePodium from "../components/components/RacePodium";
 import { useRaceList } from "../context/RaceContext";
+import RacePodium from "../components/components/RacePodium";
+import { useTranslation } from "react-i18next";
 export const CANCELLED_CIRCUITS = ["Sakhir", "Jeddah"];
 
 /* returns true if the race is cancelled, false otherwise */
@@ -21,11 +23,14 @@ export function isRaceInPast(data) {
     return eventDate < today;
 }
 
-/* returns true if the race is today, false otherwise */
-export function isRaceToday(data) {
-    const eventDate = new Date(data.date_start);
+/* returns true if the race is happening this weekend */
+export function isRaceWeekend(data) {
+    const eventDate = new Date(data.date_end);
     const today = new Date();
-    return eventDate.toDateString() === today.toDateString();
+    const weekendStart = new Date(eventDate)
+    weekendStart.setHours(0,0,0,0)
+    weekendStart.setDate(eventDate.getDate() - 2);
+    return (today >= weekendStart && today <=eventDate);
 }
 
 /* returns the Card Style for races in different states (past, upcoming) */
@@ -37,7 +42,8 @@ export function getRaceCardStyle(data) {
 export function getRaceCardHeaderStyle(data) {
     if (isRaceCancelled(data.circuit_short_name)) return { background: 'var(--main-light-grey)', color: 'var(--main-grey)' };
     if (isRaceInPast(data)) return { background: 'var(--main-grey)' };
-    if (isRaceToday(data)) return { background: 'var(--main-red)' };
+    let result = isRaceWeekend(data);
+    if (isRaceWeekend(data)) return { background: 'var(--main-red)' };
 
     return { background: 'var(--main-black)' };
 }
@@ -52,7 +58,7 @@ export function getRaceCardMain(data) {
 
     if (isRaceInPast(data)) {
         const { arrPodium } = useRaceList();
-        if (arrPodium.length > 0){
+        if (arrPodium.length > 0) {
             let oCurrent = arrPodium.filter(({ race }) => race.session_key === data.session_key);
             let arrRacePodium = oCurrent[0]?.podiumSitter || [];
             return (
@@ -72,4 +78,16 @@ export function getRaceCardMain(data) {
             <img src={sImgSrc} alt={sImgAlt} loading="lazy" className="raceImg" style={sStyle} />
         </>
     );
+}
+
+export function getResultDriverName(driver) {
+    const { t } = useTranslation();
+    let oDriver = driverNumberData[driver.driver_number] || {};
+    let firstName = oDriver?.firstName?.trim();
+    let lastName = oDriver?.lastName?.trim();
+
+    if (!firstName && !lastName) {
+        return t('driver')+": " + driver.driver_number
+    }
+    return firstName + ". " + lastName;
 }

@@ -5,8 +5,8 @@ import { driverAssignedToTeam, teamDefaultData } from "../assets/defaultMapping"
 import { getRaceCancelledImg, getRaceCardMain, isRaceCancelled } from "./RaceUtils";
 
 export const getRaceCardContent = (data, position) => {
-   let bCancelled = (isRaceCancelled(data.circuit_short_name)) ? true : false;
-
+   let bCancelled = isRaceCancelled(data.circuit_short_name);
+   
    return {
       header: (
          <>

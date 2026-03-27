@@ -6,6 +6,7 @@ import '../styles/DetailSession.css';
 import ButtonBack from "../components/components/ButtonBack";
 import { useRaceList } from "../context/RaceContext";
 import { driverNumberData } from "../assets/defaultMapping";
+import { getResultDriverName } from "../utilities/RaceUtils";
 
 function DetailCircuit() {
    const { t } = useTranslation();
@@ -13,7 +14,7 @@ function DetailCircuit() {
    const { nMeetingKey, nDefaultSessionKey, oRaceData } = state || {};
    const { arrSessions } = useRaceList();
    const arrWeekendSessions = arrSessions.filter((oSession) => oSession.meeting_key === nMeetingKey);
-   const [nSelectedSessionKey, setSelectedSessionKey] = useState(nDefaultSessionKey);   
+   const [nSelectedSessionKey, setSelectedSessionKey] = useState(nDefaultSessionKey);
    const [arrSortedDriver, setSortedDriver] = useState([]);
    const [bLoading, setLoading] = useState(true);
 
@@ -37,13 +38,14 @@ function DetailCircuit() {
 
    function DriverRow({ driver, index }) {
       let oDriver = driverNumberData[driver.driver_number] || {};
-      let constructorId = oDriver.constructorId;
+      let constructorId = oDriver?.constructorId || "no-team";
       let sDetail = getDriverRowDetail(driver);
-
+      let sDisplayName = getResultDriverName(driver)
+         
       return (
          <tr className={constructorId} key={driver.driver_number}>
             <td>{index}</td>
-            <td>{oDriver.firstName.substring(0, 1)}. {oDriver.lastName}</td>
+            <td>{sDisplayName}</td>
             <td>{sDetail}</td>
          </tr>
       )
@@ -69,7 +71,7 @@ function DetailCircuit() {
       <div className="container wide">
          <div className='detail-header'>
             <ButtonBack />
-            <h1>{getCircuitDetailName(oRaceData)}<br/> {t("race")}</h1>
+            <h1>{getCircuitDetailName(oRaceData)}<br /> {t("race")}</h1>
          </div>
 
          <div className="dropdown">
