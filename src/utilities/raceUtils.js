@@ -89,5 +89,5 @@ export function getResultDriverName(driver) {
     if (!firstName && !lastName) {
         return t('driver')+": " + driver.driver_number
     }
-    return firstName + ". " + lastName;
+    return firstName.substring(0,1) + ". " + lastName;
 }
