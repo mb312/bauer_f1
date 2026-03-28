@@ -53,7 +53,7 @@ export const driverNumberData = {
     89: { firstName: "Pato", lastName: "O'Ward", constructorId: "mclaren", name: "McLaren", driver: "Pato O'Ward" },
     22: { firstName: "Yuki", lastName: "Tsunoda", constructorId: "rb", name: "RB F1 Team", driver: "Yuki Tsunoda" },
     37: { firstName: "Ayumu", lastName: "Iwasa", constructorId: "red_bull", name: "Red Bull", driver: "Ayumu Iwasa" },
-    14: { firstName: "Frederik", lastName: "Vesti", constructorId: "mercedes", name: "Mercedes", driver: "Frederik Vesti" },
+    //14: { firstName: "Frederik", lastName: "Vesti", constructorId: "mercedes", name: "Mercedes", driver: "Frederik Vesti" },
     13: { firstName: "Luke", lastName: "Browning", constructorId: "williams", name: "Williams", driver: "Luke Browning" },
     7: { firstName: "Jack", lastName: "Doohan", constructorId: "haas", name: "Haas F1 Team", driver: "Jack Doohan" },
     38: { firstName: "Ryo", lastName: "Hirakawa", constructorId: "haas", name: "Haas F1 Team", driver: "Ryo Hirakawa" },
