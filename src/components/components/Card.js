@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { getDriverCardContent, getRaceCardContent, getTeamCardContent } from "../../utilities/CardUtils";
 import { getCardClassArray } from "../../utilities/UsefullUtils";
 import { driverAssignedToTeam } from "../../assets/defaultMapping";
-import { getRaceCardHeaderStyle, getRaceCardStyle } from "../../utilities/RaceUtils";
+import { getRaceCardHeaderStyle, getRaceCardStyle, isRaceCancelled } from "../../utilities/RaceUtils";
 
 const Card = ({ type, data, cardClass = 0, position, points }) => {
    const navigate = useNavigate();
@@ -13,6 +13,7 @@ const Card = ({ type, data, cardClass = 0, position, points }) => {
 
    const handleClick = () => {
       if (type === "race") {
+         if (isRaceCancelled(data.circuit_short_name)) return;
          navigate(`/circuit/${data.circuit_short_name}`, { state: { nMeetingKey: data.meeting_key, nDefaultSessionKey: data.session_key, oRaceData: data } });
       } else if (type === "driver") {
          const oDriver = data?.Driver || data;

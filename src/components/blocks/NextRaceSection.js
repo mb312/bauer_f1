@@ -3,6 +3,7 @@ import EventBlock from "./EventBlock";
 import BroadCastBlock from "./BroadCastBlock";
 import { useTranslation } from "react-i18next";
 import { useRaceList } from "../../context/RaceContext";
+import { isRaceCancelled } from "../../utilities/RaceUtils";
 
 function NextRaceSection() {
    const { t } = useTranslation();
@@ -10,7 +11,7 @@ function NextRaceSection() {
    var nIndex = 0;
    const oNextRace = arrRaces.find((race, index) => {
       nIndex = index + 1;
-      return new Date(race.date_end).getTime() >= new Date().getTime()
+      return new Date(race.date_end).getTime() >= new Date().getTime() && !isRaceCancelled(race.circuit_short_name)
    });
 
    if (!oNextRace) return <div></div>;
